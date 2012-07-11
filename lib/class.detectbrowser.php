@@ -11,7 +11,7 @@ class DetectBrowser
 	public function __construct()
 	{
 		$this->ua = $_SERVER['HTTP_USER_AGENT'];
-		$this->ua = 'BENQ-Morpheus';
+		//$this->ua = 'BENQ-Morpheus';
 		//echo $this->ua.'\n<br/>';
 		$this->detect_broswer();
 		$this->detect_device();

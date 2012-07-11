@@ -4,23 +4,49 @@
  */
 class DetectBrowser
 {
-	private $os = 'not-detected'; /* os property of class, @default = 'not-detected' */
+	private $os = Array('name'=>'not-detected','version'=>'0.0'); /* os property of class, @default = 'not-detected' */
 	private $device = 'not-detected'; /* device property of class, @default = 'not-detected' */
 	private $browser = Array('name'=>'not-detected','version'=>'0.0'); /* browser property of class, @default = 'not-detected' */
 	private $ua; /* USER AGENT of browser */
 	public function __construct()
 	{
 		$this->ua = $_SERVER['HTTP_USER_AGENT'];
-		//$this->ua = 'BENQ-Morpheus';
+		//$this->ua = 'Mozilla/5.0 (iPad; CPU OS 5_1 like Mac OS X) AppleWebKit/534.46 (KHTML, like Gecko) Mobile/9B176';
 		//echo $this->ua.'\n<br/>';
 		$this->detect_broswer();
 		$this->detect_device();
+		$this->detect_os();
 		echo print_r($this->browser);
 		echo '<br/>'.$this->device;
+		echo '<br/>'.$this->os['name'].' '.$this->os['version'];
 		$path = $_SERVER['DOCUMENT_ROOT'].'/browser/lib/log.txt';
 		$file = fopen($path,'a+');
 		fwrite($file,"{\n".$this->ua."\n".$this->device."\n}\n");
 		fclose($file);
+	}
+	
+	private function detect_os()
+	{
+		$ios = '/like Mac OS X/';
+		$ubuntu = '/Ubuntu/';
+		$linux = '/(X11|Linux)/';
+		if(preg_match($ios,$this->ua))
+		{
+			/* if os is iOS */
+			$this->ios();
+		}
+		else
+		if(preg_match($ubuntu,$this->ua))
+		{
+			/* if os is Ubuntu */
+			$this->ubuntu();
+		}
+		else
+		if(preg_match($linux,$this->ua))
+		{
+			/* if os is Linux */
+			$this->linux();
+		}
 	}
 	
 	private function detect_device()
@@ -841,6 +867,28 @@ class DetectBrowser
 		$device = str_replace('BENQ-','',$device);
 		$device = str_replace('benq-','',$device);
 		$this->device .= $device;
+	}
+	
+	private function ios()
+	{
+		$pattern = '/[0-9._]{1,15} like Mac OS X/';
+		$this->os['name'] = 'iOS';
+		preg_match($pattern,$this->ua,$v);
+		$v = $v[0];
+		$v = str_replace('CPU OS ','',$v);
+		$v = str_replace(' like Mac OS X','',$v);
+		$v = str_replace('_','.',$v);
+		$this->os['version'] = $v;
+	}
+	
+	private function ubuntu()
+	{
+		$this->os['name'] = 'Ubuntu';
+	}
+	
+	private function linux()
+	{
+		$this->os['name'] = 'Linux';
 	}
 }
 $br = new DetectBrowser();

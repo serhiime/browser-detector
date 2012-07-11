@@ -1,3 +1,8 @@
+v 1.0.3
+	os support:
+		-iOS
+		-Linux
+		-Ubuntu
 v 1.0.2:
 	device support:
 		- Motorola

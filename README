@@ -4,7 +4,7 @@ Last Update: 11.07.2012
 Changelog: https://github.com/endorphinua/PHP-detect-os-browser-and-device/wiki/changelog
 Twitter: https://twitter.com/endorphinua
 
-Support Detection: 
+* Support Detection: 
 	os support: 
 		- iOS
 		- Ubuntu

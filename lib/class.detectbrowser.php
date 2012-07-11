@@ -11,7 +11,7 @@ class DetectBrowser
 	public function __construct()
 	{
 		$this->ua = $_SERVER['HTTP_USER_AGENT'];
-		//$this->ua = 'Mozilla/5.0 (iPad; CPU OS 5_1 like Mac OS X) AppleWebKit/534.46 (KHTML, like Gecko) Mobile/9B176';
+		//$this->ua = 'Mozilla/5.0 (compatible; MSIE 9.0; Windows Phone OS 7.5; Trident/5.0; IEMobile/9.0; NOKIA; Lumia 610)';
 		//echo $this->ua.'\n<br/>';
 		$this->detect_broswer();
 		$this->detect_device();
@@ -30,6 +30,7 @@ class DetectBrowser
 		$ios = '/like Mac OS X/';
 		$ubuntu = '/Ubuntu/';
 		$linux = '/(X11|Linux)/';
+		$windows = '/(Win|Windows)/';
 		if(preg_match($ios,$this->ua))
 		{
 			/* if os is iOS */
@@ -46,6 +47,12 @@ class DetectBrowser
 		{
 			/* if os is Linux */
 			$this->linux();
+		}
+		else
+		if(preg_match($windows,$this->ua))
+		{
+			/* if os is MS Windows */
+			$this->windows();
 		}
 	}
 	
@@ -884,11 +891,88 @@ class DetectBrowser
 	private function ubuntu()
 	{
 		$this->os['name'] = 'Ubuntu';
+		$pattern = '/Ubuntu\/[0-9.]{1,10} /';
+		if(preg_match($pattern,$this->ua))
+		{
+			preg_match($pattern,$this->ua,$v);
+			$v = $v[0];
+			$v = str_replace('Ubuntu/','',$v);
+			$this->os['version'] = $v;
+		}
 	}
 	
 	private function linux()
 	{
 		$this->os['name'] = 'Linux';
+	}
+	
+	private function windows()
+	{
+		$this->os['name'] = 'Windows';
+		$win95 = '/(Win95)/';
+		$win98 = '/(Win98)/';
+		$me = '/(Win 9[0-9]{1} 4.90|WinNT)/';
+		$win2000 = '/(Windows NT 5.0|Windows 2000|Windows NT 5.01)/';
+		$xp = '/Windows NT 5.1/';
+		$server2003 = '/Windows NT 5.2/';
+		$vista = '/Windows NT 6.0/';
+		$seven = '/Windows NT 6.1/';
+		$eight = '/Windows NT 6.2/';
+		$ce = '/Windows CE/';
+		$wp = '/Windows Phone OS [0-9.]{1,15}/';
+		if(preg_match($win95,$this->ua))
+		{
+			$this->os['version'] = '95';
+		}
+		else
+		if(preg_match($win98,$this->ua))
+		{
+			$this->os['version'] = '95';
+		}
+		else
+		if(preg_match($me,$this->ua))
+		{
+			$this->os['version'] = 'ME';
+		}
+		else
+		if(preg_match($win2000,$this->ua))
+		{
+			$this->os['version'] = '2000';
+		}
+		else
+		if(preg_match($xp,$this->ua))
+		{
+			$this->os['version'] = 'XP';
+		}
+		else
+		if(preg_match($server2003,$this->ua))
+		{
+			$this->os['version'] = 'Server 2003';
+		}
+		else
+		if(preg_match($seven,$this->ua))
+		{
+			$this->os['version'] = '7';
+		}
+		else
+		if(preg_match($eight,$this->ua))
+		{
+			$this->os['version'] = '8';
+		}
+		else
+		if(preg_match($ce,$this->ua))
+		{
+			$this->os['version'] = 'CE';
+		}
+		else
+		if(preg_match($wp,$this->ua))
+		{
+			$this->os['version'] = 'Phone ';
+			preg_match($wp,$this->ua,$v);
+			$v = $v[0];
+			$v = str_replace('Windows Phone OS ','',$v);
+			$this->os['version'] .= $v;
+		}
 	}
 }
 $br = new DetectBrowser();

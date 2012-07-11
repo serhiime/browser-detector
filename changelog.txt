@@ -1,8 +1,19 @@
 v 1.0.3
 	os support:
-		-iOS
-		-Linux
-		-Ubuntu
+		- iOS
+		- Linux
+		- Ubuntu
+		- Windows 95
+		- Windows 98
+		- Windows 2000
+		- Windows ME
+		- Windows CE
+		- Windows Server 2003
+		- Windows XP
+		- Windows Vista
+		- Windows 7
+		- Windows 8
+		- Windows Phone	
 v 1.0.2:
 	device support:
 		- Motorola

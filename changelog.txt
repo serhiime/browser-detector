@@ -1,3 +1,34 @@
+v 1.0.4:
+	os support:
+		- Symbian
+		- Android
+		- Bada
+		- Chromium OS
+		- FreeBSD
+		- Arch Linux
+		- Debian
+		- Fedora
+		- Gentoo
+		- Kanotix
+		- Mandriva
+		- Mint
+		- Red Hat
+		- Slackware
+		- SUSE
+		- Max OS X
+		- Mac OS X 10.3 Panther
+		- Mac OS X 10.4 Tiger
+		- Mac OS X 10.5 Leopard
+		- Mac OS X 10.6 Snow Leopard
+		- Mac OS X 10.7 Lion
+		- Morph OS
+		- Minix 3
+		- NetBSD
+		- AROS
+		- Amiga OS
+		- BeOS
+		- DragonFly BSD
+
 v 1.0.3
 	os support:
 		- iOS

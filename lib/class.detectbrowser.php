@@ -1,6 +1,6 @@
 <?php
 /*
- * @version 1.0.1
+ * @version 1.0.4
  */
 class DetectBrowser
 {
@@ -11,7 +11,7 @@ class DetectBrowser
 	public function __construct()
 	{
 		$this->ua = $_SERVER['HTTP_USER_AGENT'];
-		//$this->ua = 'Mozilla/5.0 (compatible; MSIE 9.0; Windows Phone OS 7.5; Trident/5.0; IEMobile/9.0; NOKIA; Lumia 610)';
+		//$this->ua = 'Mozilla/5.0 (X11; U; DragonFly i386; de; rv:1.9.1) Gecko/20090720 Firefox/3.5.1';
 		//echo $this->ua.'\n<br/>';
 		$this->detect_broswer();
 		$this->detect_device();
@@ -31,6 +31,32 @@ class DetectBrowser
 		$ubuntu = '/Ubuntu/';
 		$linux = '/(X11|Linux)/';
 		$windows = '/(Win|Windows)/';
+		$symbian = '/(SymbianOS)/';
+		$android = '/;( )?Android/';
+		$maemo = '/Maemo/';
+		$bada = '/Bada/';
+		$chromium_os = '/CrOS/';
+		$free_bsd = '/FreeBSD/';
+		$arch_linux = '/Arch Linux/';
+		$cent_os = '/CentOS/';
+		$debian = '/Debian/';
+		$fedora = '/Fedora/';
+		$gentoo = '/Gentoo/';
+		$kanotix = '/(kanotix|Kanotix)/';
+		$mandriva = '/Mandriva/';
+		$mint = '/Mint/';
+		$red_hat = '/Red Hat/';
+		$slackware = '/Slackware/';
+		$suse = '/SUSE/';
+		$mac_os_x = '/Mac OS X/';
+		$morph_os = '/MorphOS/';
+		$minix = '/Minix/';
+		$net_bsd = '/NetBSD/';
+		$aros = '/AROS/';
+		$amiga = '/Amiga/';
+		$beos = '/BeOS/';
+		$dragonfly_bsd = '/DragonFly/';
+		
 		if(preg_match($ios,$this->ua))
 		{
 			/* if os is iOS */
@@ -43,16 +69,166 @@ class DetectBrowser
 			$this->ubuntu();
 		}
 		else
+		if(preg_match($android,$this->ua))
+		{
+			/* if os is Android */
+			$this->android();
+		}
+		else
+		if(preg_match($maemo,$this->ua))
+		{
+			/* if os is Maemo */
+			$this->maemo();
+		}
+		else
+		if(preg_match($bada,$this->ua))
+		{
+			/* if os is Bada */
+			$this->bada();
+		}
+		else
+		if(preg_match($chromium_os,$this->ua))
+		{
+			/* if os is Chromium OS */
+			$this->chromium_os();
+		}
+		else
+		if(preg_match($free_bsd,$this->ua))
+		{
+			/* if os is FreeBSD */
+			$this->free_bsd();
+		}
+		else
+		if(preg_match($arch_linux,$this->ua))
+		{
+			/* if os is Arch Linux */
+			$this->arch_linux();
+		}
+		else
+		if(preg_match($cent_os,$this->ua))
+		{
+			/* if os is Cent OS */
+			$this->cent_os();
+		}
+		else
+		if(preg_match($debian,$this->ua))
+		{
+			/* if os is Debian */
+			$this->debian();
+		}
+		else
+		if(preg_match($fedora,$this->ua))
+		{
+			/* if os is Fedora */
+			$this->fedora();
+		}
+		else
+		if(preg_match($gentoo,$this->ua))
+		{
+			/* if os is Gentoo */
+			$this->gentoo();
+		}
+		else
+		if(preg_match($kanotix,$this->ua))
+		{
+			/* if os is Kanotix */
+			$this->kanotix();
+		}
+		else
+		if(preg_match($mandriva,$this->ua))
+		{
+			/* if os is Mandriva */
+			$this->mandriva();
+		}
+		else
+		if(preg_match($mint,$this->ua))
+		{
+			/* if os is Mint */
+			$this->mint();
+		}
+		else
+		if(preg_match($red_hat,$this->ua))
+		{
+			/* if os is Red Hat */
+			$this->red_hat();
+		}
+		else
+		if(preg_match($slackware,$this->ua))
+		{
+			/* if os is Shlackware */
+			$this->slackware();
+		}
+		else
+		if(preg_match($suse,$this->ua))
+		{
+			/* if os is SUSE */
+			$this->suse();
+		}
+		else
+		if(preg_match($mac_os_x,$this->ua))
+		{
+			/* if os is Mac OS X */
+			$this->mac_os_x();
+		}
+		else
+		if(preg_match($net_bsd,$this->ua))
+		{
+			/* if os is NetBSD */
+			$this->net_bsd();
+		}
+		else
+		if(preg_match($dragonfly_bsd,$this->ua))
+		{
+			/* if os is DragonFly BSD */
+			$this->dragonfly_bsd();
+		}
+		else
 		if(preg_match($linux,$this->ua))
 		{
 			/* if os is Linux */
 			$this->linux();
 		}
 		else
+		if(preg_match($morph_os,$this->ua))
+		{
+			/* if os is MorphOS */
+			$this->morph_os();
+		}
+		else
+		if(preg_match($minix,$this->ua))
+		{
+			/* if os is Minix 3 */
+			$this->minix();
+		}
+		else
 		if(preg_match($windows,$this->ua))
 		{
 			/* if os is MS Windows */
 			$this->windows();
+		}
+		else
+		if(preg_match($symbian,$this->ua))
+		{
+			/* if os is Symbian */
+			$this->symbian();
+		}
+		else
+		if(preg_match($aros,$this->ua))
+		{
+			/* if os is AROS */
+			$this->aros();
+		}
+		else
+		if(preg_match($amiga,$this->ua))
+		{
+			/* if os is Amiga */
+			$this->amiga();
+		}
+		else
+		if(preg_match($beos,$this->ua))
+		{
+			/* if os is BeOS */
+			$this->beos();
 		}
 	}
 	
@@ -464,7 +640,7 @@ class DetectBrowser
 	{
 		$this->browser['name'] = 'Opera Mini';
 		$this->get_browser_version('Opera Mini');
-		echo $_SERVER['HTTP_X_OPERAMINI_PHONE_UA'].'<br/>';
+		$this->ua = $_SERVER['HTTP_X_OPERAMINI_PHONE_UA'];
 	}
 	
 	private function abrowse()
@@ -973,6 +1149,211 @@ class DetectBrowser
 			$v = str_replace('Windows Phone OS ','',$v);
 			$this->os['version'] .= $v;
 		}
+	}
+	
+	private function symbian()
+	{
+		$this->os['name'] = 'Symbian';
+		$pattern = '/SymbianOS\/[0-9,]{1,10}/';
+		if(preg_match($pattern,$this->ua))
+		{
+			preg_match($pattern,$this->ua,$v);
+			$v = $v[0];
+			$v = str_replace('SymbianOS/','',$v);
+			$this->os['version'] = $v;
+		}
+	}
+	
+	private function android()
+	{
+		$this->os['name'] = 'Android';
+		$pattern = '/Android [0-9.]{1,10}/';
+		if(preg_match($pattern,$this->ua))
+		{
+			preg_match($pattern,$this->ua,$v);
+			$v = $v[0];
+			$v = str_replace('Android','',$v);
+			$v = str_replace(' ','',$v);
+			$this->os['version'] = $v;
+		}
+	}
+	
+	private function maemo()
+	{
+		$this->os['name'] = 'Maemo';
+	}
+	
+	private function bada()
+	{
+		$this->os['name'] = 'Bada';
+		$pattern = '/Bada\/[0-9.]{1,10}/';
+		if(preg_match($pattern,$this->ua))
+		{
+			preg_match($pattern,$this->ua,$v);
+			$v = $v[0];
+			$v = str_replace('Bada','',$v);
+			$v = str_replace('/','',$v);
+			$this->os['version'] = $v;
+		}
+	}
+	
+	private function chromium_os()
+	{
+		$this->os['name'] = 'Chromium OS';
+		$pattern = '/CrOS \w{1,10} [0-9.]{1,10}/';
+		if(preg_match($pattern,$this->ua))
+		{
+			preg_match($pattern,$this->ua,$v);
+			$v = $v[0];
+			$v = str_replace('CrOS','',$v);
+			$v = preg_replace('/ \w{1,10} /','',$v);
+			$this->os['version'] = $v;
+		}
+	}
+	
+	private function free_bsd()
+	{
+		$this->os['name'] = 'FreeBSD';
+	}
+	
+	private function arch_linux()
+	{
+		$this->os['name'] = 'Arch Linux';
+	}
+	
+	private function cent_os()
+	{
+		$this->os['name'] = 'Cent OS';
+	}
+	
+	private function debian()
+	{
+		$this->os['name'] = 'Debian';
+	}
+	
+	private function fedora()
+	{
+		$this->os['name'] = 'Fedora';
+	}
+	
+	private function gentoo()
+	{
+		$this->os['name'] = 'Gentoo';
+	}
+	
+	private function kanotix()
+	{
+		$this->os['name'] = 'Kanotix';
+	}
+	
+	private function mandriva()
+	{
+		$this->os['name'] = 'Mandriva';
+	}
+	
+	private function mint()
+	{
+		$this->os['name'] = 'Mint';
+		$pattern = '/Mint\/[0-9.]{1,10} (\w{1,10})?/';
+		if(preg_match($pattern,$this->ua))
+		{
+			preg_match($pattern,$this->ua,$v);
+			$v = $v[0];
+			$v = str_replace('Mint/','',$v);
+			$this->os['version'] = $v;
+		}
+	}
+	
+	private function red_hat()
+	{
+		$this->os['name'] = 'Red Hat';
+	}
+	
+	private function slackware()
+	{
+		$this->os['name'] = 'Slackware';
+		$pattern = '/Slackware\/[0-9.]{1,10}/';
+		if(preg_match($pattern,$this->ua))
+		{
+			preg_match($pattern,$this->ua,$v);
+			$v = $v[0];
+			$v = str_replace('Slackware/','',$v);
+			$this->os['version'] = $v;
+		}
+	}
+	
+	private function suse()
+	{
+		$this->os['name'] = 'SUSE';
+	}
+	
+	private function mac_os_x()
+	{
+		$this->os['name'] = 'Mac OS X';
+		$pattern = '/Mac OS X [0-9._]{1,10}/';
+		if(preg_match($pattern,$this->ua))
+		{
+			preg_match($pattern,$this->ua,$v);
+			$v = $v[0];
+			$v = str_replace('Mac OS X ','',$v);
+			$v = str_replace('_','.',$v);
+			$this->os['version'] = $v;
+			if(preg_match('/10.3/',$v))
+			{
+				$this->os['version'] .= ' (Panther)';
+			}
+			if(preg_match('/10.4/',$v))
+			{
+				$this->os['version'] .= ' (Tiger)';
+			}
+			if(preg_match('/10.5/',$v))
+			{
+				$this->os['version'] .= ' (Leopard)';
+			}
+			if(preg_match('/10.6/',$v))
+			{
+				$this->os['version'] .= ' (Snow Leopard)';
+			}
+			if(preg_match('/10.7/',$v))
+			{
+				$this->os['version'] .= ' (Lion)';
+			}
+		}
+	}
+	
+	private function morph_os()
+	{
+		$this->os['name'] = 'Morph OS';
+	}
+	
+	private function minix()
+	{
+		$this->os['name'] = 'Minix 3';
+	}
+	
+	private function net_bsd()
+	{
+		$this->os['name'] = 'NetBSD';
+	}
+	
+	private function aros()
+	{
+		$this->os['name'] = 'AROS';
+	}
+	
+	private function amiga()
+	{
+		$this->os['name'] = 'Amiga';
+	}
+	
+	private function beos()
+	{
+		$this->os['name'] = 'BeOS';
+	}
+	
+	private function dragonfly_bsd()
+	{
+		$this->os['name'] = 'DragonFly BSD';
 	}
 }
 $br = new DetectBrowser();

@@ -1,6 +1,6 @@
 Author: Sergey Nehaenko <sergey.nekhaenko@gmail.com>
-Current Version: 1.0.3 
-Last Update: 11.07.2012
+Current Version: 1.0.4 
+Last Update: 12.07.2012
 Changelog: https://github.com/endorphinua/PHP-detect-os-browser-and-device/wiki/changelog
 Twitter: https://twitter.com/endorphinua
 
@@ -20,6 +20,34 @@ Support Detection:
 		- Windows 7
 		- Windows 8
 		- Windows Phone	
+		- Symbian
+		- Android
+		- Bada
+		- Chromium OS
+		- FreeBSD
+		- Arch Linux
+		- Debian
+		- Fedora
+		- Gentoo
+		- Kanotix
+		- Mandriva
+		- Mint
+		- Red Hat
+		- Slackware
+		- SUSE
+		- Max OS X
+		- Mac OS X 10.3 Panther
+		- Mac OS X 10.4 Tiger
+		- Mac OS X 10.5 Leopard
+		- Mac OS X 10.6 Snow Leopard
+		- Mac OS X 10.7 Lion
+		- Morph OS
+		- Minix 3
+		- NetBSD
+		- AROS
+		- Amiga OS
+		- BeOS
+		- DragonFly BSD
 	browser support:
 		- Mozilla Firefox
 		- Google Chrome

@@ -1,3 +1,31 @@
+v 1.0.5:
+	- fixed detection of Nokia devices
+	- fixed detection of BlackBerry devices
+	- fixed detection of Symbian OS
+	- fixed detection of Windows ME OS
+	- fixed detection of Windows Phone OS
+	
+	os support:
+		- HP-UX
+		- IRIX
+		- Joli OS
+		- Nintendo Wii
+		- Open BSD
+		- Mac OS X 10.8 Mountain Lion
+		- Palm OS
+		- PClinuxOS
+		- RIM OS
+		- RIM Tablet OS
+		- Solaris
+		- Syllable
+		- Tizen
+		- webOS
+		- Windows Mobile
+		
+	device support:
+		- Sony Playstation
+		- PSP
+		
 v 1.0.4:
 	os support:
 		- Symbian

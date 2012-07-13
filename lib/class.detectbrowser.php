@@ -1,6 +1,7 @@
 <?php
 /*
- * @version 1.0.4
+ * @version 1.0.5
+ * @author Sergey Nehaenko <sergey.nekhaenko@gmail.com>
  */
 class DetectBrowser
 {
@@ -11,7 +12,7 @@ class DetectBrowser
 	public function __construct()
 	{
 		$this->ua = $_SERVER['HTTP_USER_AGENT'];
-		//$this->ua = 'Mozilla/5.0 (X11; U; DragonFly i386; de; rv:1.9.1) Gecko/20090720 Firefox/3.5.1';
+		//$this->ua = 'Mozilla/4.0 (PSP (PlayStation Portable); 2.00)';
 		//echo $this->ua.'\n<br/>';
 		$this->detect_broswer();
 		$this->detect_device();
@@ -30,8 +31,8 @@ class DetectBrowser
 		$ios = '/like Mac OS X/';
 		$ubuntu = '/Ubuntu/';
 		$linux = '/(X11|Linux)/';
-		$windows = '/(Win|Windows)/';
-		$symbian = '/(SymbianOS)/';
+		$windows = '/(Win|Windows|WP)/';
+		$symbian = '/(SymbianOS|SymbOS)/';
 		$android = '/;( )?Android/';
 		$maemo = '/Maemo/';
 		$bada = '/Bada/';
@@ -56,7 +57,20 @@ class DetectBrowser
 		$amiga = '/Amiga/';
 		$beos = '/BeOS/';
 		$dragonfly_bsd = '/DragonFly/';
-		
+		$hp_ux = '/HP-UX/';
+		$irix = '/IRIX/';
+		$joli_os = '/Jolicloud/';
+		$nintendo_wii = '/Nintendo Wii/';
+		$open_bsd = '/OpenBSD/';
+		$palm_os = '/Palm OS/';
+		$pc_linux_os = '/PCLinuxOS/';
+		$rim_os = '/BlackBerry/';
+		$rim_tablet_os = '/RIM Tablet OS/';
+		$solaris = '/SunOS/';
+		$syllable = '/Syllable/';
+		$tizen = '/Tizen/';
+		$web_os = '/(webOS|hpwOS)/';
+				
 		if(preg_match($ios,$this->ua))
 		{
 			/* if os is iOS */
@@ -69,10 +83,22 @@ class DetectBrowser
 			$this->ubuntu();
 		}
 		else
+		if(preg_match($tizen,$this->ua))
+		{
+			/* if os is Tizen */
+			$this->tizen();
+		}
+		else
 		if(preg_match($android,$this->ua))
 		{
 			/* if os is Android */
 			$this->android();
+		}
+		else
+		if(preg_match($web_os,$this->ua))
+		{
+			/* if os is webOS */
+			$this->web_os();
 		}
 		else
 		if(preg_match($maemo,$this->ua))
@@ -141,6 +167,12 @@ class DetectBrowser
 			$this->mandriva();
 		}
 		else
+		if(preg_match($syllable,$this->ua))
+		{
+			/* if os is Syllable */
+			$this->syllable();
+		}
+		else
 		if(preg_match($mint,$this->ua))
 		{
 			/* if os is Mint */
@@ -165,6 +197,12 @@ class DetectBrowser
 			$this->suse();
 		}
 		else
+		if(preg_match($irix,$this->ua))
+		{
+			/* if os is IRIX */
+			$this->irix();
+		}
+		else
 		if(preg_match($mac_os_x,$this->ua))
 		{
 			/* if os is Mac OS X */
@@ -177,10 +215,40 @@ class DetectBrowser
 			$this->net_bsd();
 		}
 		else
+		if(preg_match($open_bsd,$this->ua))
+		{
+			/* if os is Open BSD */
+			$this->open_bsd();
+		}
+		else
+		if(preg_match($solaris,$this->ua))
+		{
+			/* if os is Solaris */
+			$this->solaris();
+		}
+		else
+		if(preg_match($hp_ux,$this->ua))
+		{
+			/* if os is HP-UX */
+			$this->hp_ux();
+		}
+		else
+		if(preg_match($pc_linux_os,$this->ua))
+		{
+			/* if os is PCLinuxOS */
+			$this->pc_linux_os();
+		}
+		else
 		if(preg_match($dragonfly_bsd,$this->ua))
 		{
 			/* if os is DragonFly BSD */
 			$this->dragonfly_bsd();
+		}
+		else
+		if(preg_match($joli_os,$this->ua))
+		{
+			/* if os is Joli OS */
+			$this->joli_os();
 		}
 		else
 		if(preg_match($linux,$this->ua))
@@ -199,6 +267,18 @@ class DetectBrowser
 		{
 			/* if os is Minix 3 */
 			$this->minix();
+		}
+		else
+		if(preg_match($rim_os,$this->ua))
+		{
+			/* if os is RIM OS */
+			$this->rim_os();
+		}
+		else
+		if(preg_match($rim_tablet_os,$this->ua))
+		{
+			/* if os is RIM Tablet OS */
+			$this->rim_tablet_os();
 		}
 		else
 		if(preg_match($windows,$this->ua))
@@ -230,6 +310,19 @@ class DetectBrowser
 			/* if os is BeOS */
 			$this->beos();
 		}
+		else
+		if(preg_match($nintendo_wii,$this->ua))
+		{
+			/* if os is Nintendo Wii */
+			$this->nintendo_wii();
+		}
+		else
+		if(preg_match($palm_os,$this->ua))
+		{
+			/* if os is Palm OS */
+			$this->palm_os();
+		}
+		
 	}
 	
 	private function detect_device()
@@ -238,12 +331,15 @@ class DetectBrowser
 		$ipad = '/iPad/'; /* Apple iPad */
 		$kindle = '/(Kindle|Silk)/'; /* Amazon Kindle */
 		$black_berry = '/(BlackBerry|RIM)/'; /* Black Berry */
-		$nokia = '/(Nokia|N900|nokia|NOKIA)/'; /* Nokia */
+		$nokia = '/(Nokia|N900|nokia|NOKIA|Series 60|Series 40|S60|S40)/'; /* Nokia */
 		$htc = '/(HTC|Desire|001HT|C720|c720|Espresso|S700)/'; /* HTC */
 		$siemens = '/SIE-/'; /* Siemens Moblie */
 		$philips = '/(PHILIPS|Philips|philips)/'; /* PHILIPS */
 		$motorola = '/(Motorola|MOT|MOTOZINE|XT|Mot)/'; /* Motorolla */
 		$benq = '/(benq|BenQ|BENQ)/'; /* BenQ */
+		$playstation = '/PLAYSTATION/';
+		$psp = '/PSP/';
+
 		
 		if(preg_match($iphone,$this->ua))
 		{
@@ -303,6 +399,18 @@ class DetectBrowser
 		{
 			/* if device is BenQ */
 			$this->benq();
+		}
+		else
+		if(preg_match($playstation,$this->ua))
+		{
+			/* if device is Playstation */
+			$this->playstation();
+		}
+		else
+		if(preg_match($psp,$this->ua))
+		{
+			/* if device is PSP */
+			$this->psp();
 		}
 		else 
 			$this->device = 'PC';
@@ -810,7 +918,7 @@ class DetectBrowser
 	{
 		$tablet = '/RIM Tablet OS/'; /* Black Berry Tablets */
 		$v6v7 = '/BlackBerry;/'; /* Black Berry phones with BlackBerry 6 and BlackBerry 7 */
-		$v4v5 = '/BlackBerry\w{1,5}\//'; /* Black Berry phones with BlackBerry 4.2-5.0 */
+		$v4v5 = '/BlackBerry\w{1,10}\//'; /* Black Berry phones with BlackBerry 4.2-5.0 */
 		if(preg_match($tablet,$this->ua))
 		{
 			/* if Tablet */
@@ -831,10 +939,10 @@ class DetectBrowser
 			$this->device = $device;
 		}
 		else
-		if(preg_match($v6v7,$this->ua))
+		if(preg_match($v4v5,$this->ua))
 		{
 			/* if v4.2-5.0 */
-			$pattern = '/BlackBerry[0-9]{1,20}/';
+			$pattern = '/BlackBerry\w{1,20}/';
 			preg_match($pattern,$this->ua,$v);
 			$device = $v[0];
 			$this->device = str_replace('BlackBerry','BlackBerry ',$device);
@@ -885,6 +993,10 @@ class DetectBrowser
 			$device = str_replace('-','',$device);
 			$device = str_replace('/','',$device);
 			$this->device = $device;
+		}
+		else
+		{
+			$this->device = 'Nokia';
 		}
 	}
 	
@@ -1087,7 +1199,7 @@ class DetectBrowser
 		$this->os['name'] = 'Windows';
 		$win95 = '/(Win95)/';
 		$win98 = '/(Win98)/';
-		$me = '/(Win 9[0-9]{1} 4.90|WinNT)/';
+		$me = '/(Win 9[0-9]{1} 4.90|WinNT|Windows ME)/';
 		$win2000 = '/(Windows NT 5.0|Windows 2000|Windows NT 5.01)/';
 		$xp = '/Windows NT 5.1/';
 		$server2003 = '/Windows NT 5.2/';
@@ -1095,10 +1207,22 @@ class DetectBrowser
 		$seven = '/Windows NT 6.1/';
 		$eight = '/Windows NT 6.2/';
 		$ce = '/Windows CE/';
-		$wp = '/Windows Phone OS [0-9.]{1,15}/';
+		$wp = '/(Windows Phone OS [0-9.]{1,15}|WP[0-9.]{1,10})/';
+		$mobile = '/Windows Mobile/';
+		
 		if(preg_match($win95,$this->ua))
 		{
 			$this->os['version'] = '95';
+		}
+		else
+		if(preg_match($wp,$this->ua))
+		{
+			$this->os['version'] = 'Phone ';
+			preg_match($wp,$this->ua,$v);
+			$v = $v[0];
+			$v = str_replace('Windows Phone OS ','',$v);
+			$v = str_replace('WP','',$v);
+			$this->os['version'] .= $v;
 		}
 		else
 		if(preg_match($win98,$this->ua))
@@ -1141,13 +1265,9 @@ class DetectBrowser
 			$this->os['version'] = 'CE';
 		}
 		else
-		if(preg_match($wp,$this->ua))
+		if(preg_match($mobile,$this->ua))
 		{
-			$this->os['version'] = 'Phone ';
-			preg_match($wp,$this->ua,$v);
-			$v = $v[0];
-			$v = str_replace('Windows Phone OS ','',$v);
-			$this->os['version'] .= $v;
+			$this->os['version'] = 'Mobile';
 		}
 	}
 	
@@ -1318,6 +1438,10 @@ class DetectBrowser
 			{
 				$this->os['version'] .= ' (Lion)';
 			}
+			if(preg_match('/10.8/',$v))
+			{
+				$this->os['version'] .= ' (Mountain Lion)';
+			}
 		}
 	}
 	
@@ -1354,6 +1478,122 @@ class DetectBrowser
 	private function dragonfly_bsd()
 	{
 		$this->os['name'] = 'DragonFly BSD';
+	}
+	
+	private function hp_ux()
+	{
+		$this->os['name'] = 'HP-UX';
+	}
+	
+	private function irix()
+	{
+		$this->os['name'] = 'IRIX';
+	}
+	
+	private function joli_os()
+	{
+		$this->os['name'] = 'Joli OS';
+	}
+	
+	private function nintendo_wii()
+	{
+		$this->os['name'] = 'Nintendo Wii';
+	}
+	
+	private function open_bsd()
+	{
+		$this->os['name'] = 'Open BSD';
+	}
+	
+	private function palm_os()
+	{
+		$this->os['name'] = 'Palm OS';
+		$pattern = '/Palm OS [0-9.]{1,10}/';
+		if(preg_match($pattern,$this->ua))
+		{
+			preg_match($pattern,$this->ua,$v);
+			$v = $v[0];
+			$v = str_replace('Palm OS ','',$v);
+			$this->os['version'] = $v;
+		}
+	}
+	
+	private function pc_linux_os()
+	{
+		$this->os['name'] = 'PClinux OS';
+		$pattern = '/PCLinuxOS\/[0-9.]{1,10}/';
+		if(preg_match($pattern,$this->ua))
+		{
+			preg_match($pattern,$this->ua,$v);
+			$v = $v[0];
+			$v = str_replace('PCLinuxOS/','',$v);
+			$this->os['version'] = $v;
+		}
+	}
+	
+	private function rim_os()
+	{
+		$this->os['name'] = 'RIM';
+	}
+	
+	private function rim_tablet_os()
+	{
+		$this->os['name'] = 'RIM Tablet';
+		$pattern = '/RIM Tablet OS [0-9.]{1,10}/';
+		if(preg_match($pattern,$this->ua))
+		{
+			preg_match($pattern,$this->ua,$v);
+			$v = $v[0];
+			$v = str_replace('RIM Tablet OS ','',$v);
+			$this->os['version'] = $v;
+		}
+	}
+	
+	private function solaris()
+	{
+		$this->os['name'] = 'Solaris';
+	}
+	
+	private function syllable()
+	{
+		$this->os['name'] = 'Syllable';
+	}
+	
+	private function tizen()
+	{
+		$this->os['name'] = 'Tizen';
+	}
+	
+	private function web_os()
+	{
+		$this->os['name'] = 'webOS';
+		$pattern = '/(webOS|hpwOS)\/[0-9.]{1,10}/';
+		if(preg_match($pattern,$this->ua))
+		{
+			preg_match($pattern,$this->ua,$v);
+			$v = $v[0];
+			$v = str_replace('webOS/','',$v);
+			$v = str_replace('hpwOS/','',$v);
+			$this->os['version'] = $v;
+		}
+	}
+	
+	private function psp()
+	{
+		$this->device = 'PSP';
+	}
+	
+	private function playstation()
+	{
+		$this->device = 'Sony Playstation ';
+		$pattern = '/PLAYSTATION [0-9]{1,3}/';
+		if(preg_match($pattern,$this->ua))
+		{
+			preg_match($pattern,$this->ua,$v);
+			$v = $v[0];
+			$v = str_replace('PLAYSTATION ','',$v);
+			$this->device .= $v;
+		}
 	}
 }
 $br = new DetectBrowser();

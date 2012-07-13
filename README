@@ -48,6 +48,21 @@ Support Detection:
 		- Amiga OS
 		- BeOS
 		- DragonFly BSD
+		- HP-UX
+		- IRIX
+		- Joli OS
+		- Nintendo Wii
+		- Open BSD
+		- Mac OS X 10.8 Mountain Lion
+		- Palm OS
+		- PClinuxOS
+		- RIM OS
+		- RIM Tablet OS
+		- Solaris
+		- Syllable
+		- Tizen
+		- webOS
+		- Windows Mobile
 	browser support:
 		- Mozilla Firefox
 		- Google Chrome
@@ -108,3 +123,5 @@ Support Detection:
 		- Philips
 		- Motorola
 		- BenQ
+		- Sony Playstation
+		- PSP

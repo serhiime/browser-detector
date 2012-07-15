@@ -12,7 +12,7 @@ class DetectBrowser
 	public function __construct()
 	{
 		$this->ua = $_SERVER['HTTP_USER_AGENT'];
-		//$this->ua = 'Mozilla/4.0 (PSP (PlayStation Portable); 2.00)';
+		//$this->ua = '';
 		//echo $this->ua.'\n<br/>';
 		$this->detect_broswer();
 		$this->detect_device();
@@ -70,6 +70,7 @@ class DetectBrowser
 		$syllable = '/Syllable/';
 		$tizen = '/Tizen/';
 		$web_os = '/(webOS|hpwOS)/';
+		$j2me = '/(J2ME|MIDP)/';
 				
 		if(preg_match($ios,$this->ua))
 		{
@@ -322,6 +323,12 @@ class DetectBrowser
 			/* if os is Palm OS */
 			$this->palm_os();
 		}
+		else
+		if(preg_match($j2me,$this->ua))
+		{
+			/* if os is J2ME */
+			$this->j2me();
+		}
 		
 	}
 	
@@ -339,8 +346,17 @@ class DetectBrowser
 		$benq = '/(benq|BenQ|BENQ)/'; /* BenQ */
 		$playstation = '/PLAYSTATION/';
 		$psp = '/PSP/';
+		$j2me = '/(J2ME|MIDP)/';
+		$google = '/(Nexus|Google)/';
+		$ipod = '/(iPod|itouch)/';
+		$lg = '/LG/';
 
-		
+		if(preg_match($ipod,$this->ua))
+		{
+			/* if device is iPod */
+			$this->ipod();
+		}
+		else
 		if(preg_match($iphone,$this->ua))
 		{
 			/* if device is iPhone */
@@ -412,6 +428,24 @@ class DetectBrowser
 			/* if device is PSP */
 			$this->psp();
 		}
+		else
+		if(preg_match($google,$this->ua))
+		{
+			/* if device is Google */
+			$this->google();
+		}
+		else
+		if(preg_match($lg,$this->ua))
+		{
+			/* if device is LG */
+			$this->lg();
+		}
+		else
+		if(preg_match($j2me,$this->ua))
+		{
+			/* if device is Mobile Phone */
+			$this->device = 'Mobile Phone';
+		}
 		else 
 			$this->device = 'PC';
 		if($this->device != 'PC')
@@ -424,6 +458,7 @@ class DetectBrowser
 		$opera_mini = '/Opera Mini/'; /* Opera Mini */
 		$skyfire = '/Skyfire/'; /* Skyfire */
 		$ie = '/IEMobile/'; /* IEMobile */
+		$opera_mobile = '/Opera Mobi/';
 		if(preg_match($skyfire,$this->ua))
 		{
 			/* if browser is Google Chrome */
@@ -435,10 +470,17 @@ class DetectBrowser
 			/* if browser is Mobile Safari */
 			$this->safari_mobile();
 		}
+		else
 		if(preg_match($opera_mini,$this->ua))
 		{
 			/* if browser is Opera Mini */
 			$this->opera_mini();
+		}
+		else
+		if(preg_match($opera_mobile,$this->ua))
+		{
+			/* if browser is Opera Mobile */
+			$this->opera_mobile();
 		}
 		else
 		if(preg_match($ie,$this->ua))
@@ -1168,12 +1210,15 @@ class DetectBrowser
 	{
 		$pattern = '/[0-9._]{1,15} like Mac OS X/';
 		$this->os['name'] = 'iOS';
-		preg_match($pattern,$this->ua,$v);
-		$v = $v[0];
-		$v = str_replace('CPU OS ','',$v);
-		$v = str_replace(' like Mac OS X','',$v);
-		$v = str_replace('_','.',$v);
-		$this->os['version'] = $v;
+		if(preg_match($pattern,$this->ua))
+		{
+			preg_match($pattern,$this->ua,$v);
+			$v = $v[0];
+			$v = str_replace('CPU OS ','',$v);
+			$v = str_replace(' like Mac OS X','',$v);
+			$v = str_replace('_','.',$v);
+			$this->os['version'] = $v;
+		}
 	}
 	
 	private function ubuntu()
@@ -1592,6 +1637,128 @@ class DetectBrowser
 			preg_match($pattern,$this->ua,$v);
 			$v = $v[0];
 			$v = str_replace('PLAYSTATION ','',$v);
+			$this->device .= $v;
+		}
+	}
+	
+	private function j2me()
+	{
+		$this->os['name'] = 'J2ME';
+	}
+	
+	private function opera_mobile()
+	{
+		$this->browser['name'] = 'Opera Mobile';
+		$this->get_browser_version('Opera Mobi');
+		
+	}
+	
+	private function google()
+	{
+		$this->device = 'Google ';
+		
+		$nexus_one = '/Nexus One/';
+		$ion = '/Google Ion/';
+		$nexus_s = '/Nexus S/';
+		$nexus_s_4g = '/Nexus S 4G/';
+		
+		if(preg_match($nexus_one,$this->ua))
+		{
+			$this->device .= 'Nexus One';
+		}
+		else
+		if(preg_match($ion,$this->ua))
+		{
+			$this->device .= 'Ion';
+		}
+		else
+		if(preg_match($nexus_s_4g,$this->ua))
+		{
+			$this->device .= 'Nexus S 4G';
+		}
+		else
+		if(preg_match($nexus_s,$this->ua))
+		{
+			$this->device .= 'Nexus S';
+		}
+		
+	}
+	
+	private function ipod()
+	{
+		$this->device = 'iPod';
+	}
+	
+	private function lg()
+	{
+		$this->device = 'LG ';
+		$pattern = '/LG(\-)?[0-9]{1,10}/';
+		$pattern2 = '/LG(-|\/)\w{1,10}/';
+		$viewty = '/GC900F/';
+		$pop = '/GD510/';
+		$dlite = '/GD570/';
+		$expo = '/GD710/';
+		$mini = '/GD880/';
+		$crystal = '/GD900/';
+		$eigen = '/GM730F/';
+		$layla = '/GM750/';
+		
+		if(preg_match($viewty,$this->ua))
+		{
+			$this->device .= 'Viewty';
+		}
+		else
+		if(preg_match($pop,$this->ua))
+		{
+			$this->device .= 'Pop';
+		}
+		else
+		if(preg_match($expo,$this->ua))
+		{
+			$this->device .= 'Expo';
+		}
+		else
+		if(preg_match($dlite,$this->ua))
+		{
+			$this->device .= 'dLite';
+		}
+		else
+		if(preg_match($mini,$this->ua))
+		{
+			$this->device .= 'Mini';
+		}
+		else
+		if(preg_match($crystal,$this->ua))
+		{
+			$this->device .= 'Crystal';
+		}
+		else
+		if(preg_match($eigen,$this->ua))
+		{
+			$this->device .= 'Eigen';
+		}
+		else
+		if(preg_match($layla,$this->ua))
+		{
+			$this->device .= 'Layla';
+		}
+		else
+		if(preg_match($pattern,$this->ua))
+		{
+			preg_match($pattern,$this->ua,$v);
+			$v = $v[0];
+			$v = str_replace('LG','',$v);
+			$v = str_replace('-','',$v);
+			$this->device .= $v;
+		}
+		else
+		if(preg_match($pattern2,$this->ua))
+		{
+			preg_match($pattern2,$this->ua,$v);
+			$v = $v[0];
+			$v = str_replace('LG','',$v);
+			$v = str_replace('-','',$v);
+			$v = str_replace('/','',$v);
 			$this->device .= $v;
 		}
 	}

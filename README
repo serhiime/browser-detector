@@ -63,6 +63,7 @@ Support Detection:
 		- Tizen
 		- webOS
 		- Windows Mobile
+		- J2ME
 	browser support:
 		- Mozilla Firefox
 		- Google Chrome
@@ -98,6 +99,7 @@ Support Detection:
 		- Cyberdog
 		- DeskBrowse
 		- Deepnet Explorer
+		- Opera Mobile
 	device support:
 		- iPhone
 		- iPad
@@ -125,3 +127,17 @@ Support Detection:
 		- BenQ
 		- Sony Playstation
 		- PSP
+		- Google Nexus One
+		- Google Ion
+		- Google Nexus S
+		- Google Nexus S 4G
+		- iPod
+		- LG
+		- LG Viewty
+		- LG Pop
+		- LG dLite
+		- LG Expo
+		- LG Mini
+		- LG Crystal
+		- LG Eigen
+		- LG Layla

@@ -6,6 +6,7 @@
  * @package ru.endorphinua.lib
  * @license: GPL
  */
+define("ROOT",$_SERVER['DOCUMENT_ROOT']); // ROOT directory
 
 class DetectBrowser
 {

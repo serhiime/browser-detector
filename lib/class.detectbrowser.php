@@ -1,17 +1,43 @@
 <?php
-/*
- * @version 1.0.7
+/**
+ * @version 1.1
  * @author Sergey Nehaenko <sergey.nekhaenko@gmail.com>
+ * @copyright Copyright (c) Sergey Nehaenko 2012
+ * @package ru.endorphinua.lib
  * @license: GPL
  */
- 
+
 class DetectBrowser
 {
-	private $os = Array('name'=>'none','version'=>'none','family'=>'none');
+	/**
+	 * @var array contains information about the user's operating system
+	 */
+	private $os = Array('name'=>'none','family'=>'none');
+	/**
+	 * @var array contains information about the device on which the site is viewed
+	 */
 	private $device = Array('name'=>'none','type'=>'none'); 
+	/**
+	 * @var array containing information about the user's browser
+	 */
 	private $browser = Array('name'=>'none','version'=>'none','type'=>'none');
+	/**
+	 * @var string User Agent string
+	 */
 	private $ua; // user agent
+	/**
+	 * @var array contains the path to the xml files
+	 */
+	private $xml_path = Array('os'=> '/data/os.xml','browser'=> '/data/browsers.xml','device'=>'/data/device.xml');
+	/**
+	 * @var array contains information from xml files
+	 */
+	private $xml;
 	
+	/*
+	 * Оbject initialization
+	 * @param string $ua User Agent string
+	 */
 	public function __construct($ua = 'none')
 	{
 		if($ua == 'none')
@@ -22,13 +48,56 @@ class DetectBrowser
 		{
 			$this->ua = $ua;
 		}
+		$this->load_xml();
 		$this->detect_broswer();
 		$this->detect_device();
 		$this->detect_os();
+		$this->fix();
 	}
 	
-	/*
-	 * getter for BROWSER property
+	/**
+	 * Load the contents of xml files into an array
+	 */
+	private function load_xml()
+	{
+		$os = simplexml_load_file(ROOT.$this->xml_path['os']);
+		$browser = simplexml_load_file(ROOT.$this->xml_path['browser']);
+		$device = simplexml_load_file(ROOT.$this->xml_path['device']);
+		$this->xml = Array();
+		foreach($os->children() as $element)
+		{
+			$id = $element->attributes()->id;
+			foreach($element->children() as $property_key => $property_value)
+			{
+				$property = (string) $property_key;
+				$id = (string) $id;
+				$this->xml['os'][$property][$id] = (string)$property_value;
+			}
+		}
+		foreach($browser->children() as $element)
+		{
+			$id = $element->attributes()->id;
+			foreach($element->children() as $property_key => $property_value)
+			{
+				$property = (string) $property_key;
+				$id = (string) $id;
+				$this->xml['browser'][$property][$id] = (string)$property_value;
+			}
+		}
+		foreach($device->children() as $element)
+		{
+			$id = $element->attributes()->id;
+			foreach($element->children() as $property_key => $property_value)
+			{
+				$property = (string) $property_key;
+				$id = (string) $id;
+				$this->xml['device'][$property][$id] = (string)$property_value;
+			}
+		}
+	}
+	
+	/**
+	 * Getter for BROWSER property
 	*/
 	
 	public function get_browser()
@@ -36,8 +105,8 @@ class DetectBrowser
 		return $this->browser;
 	}
 	
-	/*
-	 * getter for OS property
+	/**
+	 * Getter for OS property
 	*/ 
 
 	public function get_os()
@@ -45,8 +114,8 @@ class DetectBrowser
 		return $this->os;
 	}
 
-	/*
-	 * getter for DEVICE property
+	/**
+	 * Getter for DEVICE property
 	*/ 
 
 	public function get_device()
@@ -54,8 +123,8 @@ class DetectBrowser
 		return $this->device;
 	}
 	
-	/*
-	 * getter for USER AGENT property
+	/**
+	 * Getter for USER AGENT property
 	 */ 
 	
 	public function get_ua()
@@ -63,68 +132,34 @@ class DetectBrowser
 		return $this->ua;
 	}
 	
-	/*
-	 * detection of BROWSER property
+	/**
+	 * Detect information about BROWSER
 	*/ 
 	
 	private function detect_broswer()
-	{
-		/*
-		 * Arrays:
-		 * pattern - Regular Expression pattern
-		 * type - type of browser (desctop or mobile)
-		 * phrese - part of Regular Expression to detect browser Version like (%phrase %version)
-		*/
-		 
-		$pattern['Firefox'] = '/Firefox/';
-		$type['Firefox'] = 'desctop';
-		
-		$pattern['Chromium'] = '/Chromium/';
-		$type['Chromium'] = 'desctop';
-		
-		$pattern['Google Chrome'] = '/Chrome/';
-		$type['Google Chrome'] = 'desctop';
-		$phrase['Google Chrome'] = 'Chrome';
-		
-		$pattern['Opera Mini'] = '/Opera Mini/';
-		$type['Opera Mini'] = 'mobile';
-		
-		$pattern['Opera Mobile'] = '/Opera Mobi/';
-		$type['Opera Mobile'] = 'mobile';
-		$phrase['Opera Mobile'] = 'Opera Mobi';
-		
-		$pattern['Opera'] = '/Opera/';
-		$type['Opera'] = 'desctop';
-		$phrase['Opera'] = 'Version';
-		
-		$pattern['Internet Explorer Mobile'] = '/IEMobile/';
-		$type['Internet Explorer Mobile'] = 'mobile';
-		$phrase['Internet Explorer Mobile'] = 'IEMobile';
-		
-		$pattern['Internet Explorer'] = '/MSIE/';
-		$type['Internet Explorer'] = 'desctop';
-		$phrase['Internet Explorer'] = 'MSIE';
-		
+	{	
+		$pattern = $this->xml['browser']['pattern'];
 		
 		foreach($pattern as $key=>$value)
 		{
+			$value = '/'.$value.'/';
 			if(preg_match($value,$this->ua))
 			{
-				if(isset($phrase[$key]))
+				if(isset($this->xml['browser']['version_pattern'][$key]))
 				{
-					$this->set_browser($key,$type[$key],$phrase[$key]);
+					$this->set_browser($key,$this->xml['browser']['type'][$key],$this->xml['browser']['version_pattern'][$key]);
 				}
 				else
 				{
-					$this->set_browser($key,$type[$key]);
+					$this->set_browser($key,$this->xml['browser']['type'][$key]);
 				}
 				break;
 			}
 		}
 	}
 	
-	/*
-	 * setter for BROWSER property
+	/**
+	 * Setter for BROWSER property
 	*/ 
 	
 	private function set_browser($name,$type,$phrase='same')
@@ -145,8 +180,8 @@ class DetectBrowser
 		}
 	}
 	
-	/*
-	 * detection of browser version
+	/**
+	 * Detect BROWSER version
 	*/ 
 	 
 	private function detect_browser_version($phrase)
@@ -165,102 +200,27 @@ class DetectBrowser
 		}
 	}
 	
-	/*
-	 * detection of DEVICE property
+	/**
+	 * Detect information about DEVICE
 	*/ 
 	
 	private function detect_device()
 	{
-		/*
-		 * Arrays:
-		 * pattern - Regular Expression pattern
-		 * type - type of device ( pc | mobile | tablet | reader | player | playstation )
-		*/
-		
-		$pattern['iPhone'] = '/iPhone/';
-		$type['iPhone'] = 'mobile';
-		
-		$pattern['iPod'] = '/(iPod|itouch)/';
-		$type['iPod'] = 'player';
-		
-		$pattern['iPad'] = '/iPad/';
-		$type['iPad'] = 'tablet';
-		
-		$pattern['Amazon Kindle Fire'] = '/Kindle Fire/';
-		$type['Amazon Kindle Fire'] = 'tablet';
-		
-		$pattern['Amazon Kindle'] = '/(Kindle\/|Silk)/';
-		$type['Amazon Kindle'] = 'reader';
-		
-		$pattern['Motorola'] = '/(MOT|Motorola|MOT-|MOTOZINE|XT|Mot)/';
-		$type['Motorola'] = 'mobile';
-		
-		$pattern['Sony Ericsson'] = '/SonyEricsson/';
-		$type['Sony Ericsson'] = 'mobile';
-		
-		$pattern['Nokia'] = '/(Nokia|N900|nokia|NOKIA|Series 60|Series 40|S60|S40)/';
-		$type['Nokia'] = 'mobile';
-		
-		$pattern['Siemens'] = '/SIE-/';
-		$type['Siemens'] = 'mobile';
-		
-		$pattern['HTC'] = '/(HTC|Desire|001HT|C720|c720|Espresso|S700)/';
-		$type['HTC'] = 'mobile';
-		
-		$pattern['BenQ'] = '/(benq|BenQ|BENQ)/';
-		$type['BenQ'] = 'mobile';
-		
-		$pattern['Sony Playstation'] = '/PLAYSTATION/';
-		$type['Sony Playstation'] = 'playstation';
-		
-		$pattern['PSP'] = '/PSP/';
-		$type['PSP'] = 'playstation';
-		
-		$pattern['XBOX'] = '/(XBOX|Xbox|xbox)/';
-		$type['XBOX'] = 'playstation';
-		
-		$pattern['Google'] = '/(Nexus|Google)/';
-		$type['Google'] = 'mobile';
-		
-		$pattern['Philips'] = '/(PHILIPS|Philips|philips)/';
-		$type['Philips'] = 'mobile';
-		
-		$pattern['LG'] = '/LG/';
-		$type['LG'] = 'mobile';
-		
-		$pattern['Black Berry Tablet'] = '/RIM Tablet/';
-		$type['Black Berry Tablet'] = 'tablet';
-		
-		$pattern['Black Berry'] = '/(BlackBerry)/';
-		$type['Black Berry'] = 'mobile';
-		
-		$pattern['SonyEricsson'] = '/SonyEricsson/';
-		$type['SonyEricsson'] = 'mobile';
-		
-		$pattern['Samsung'] = '/(SAMSUNG|Samsung|samsung|sam-r|GT-|SHW-|SCH-|SGH)/';
-		$type['Samsung'] = 'mobile';
-		
-		$pattern['Samsung Galaxy Tab'] = '/(GT-P1000|SCH-I800|GT-P5100|GT-P7511|GT-P6810|SHW-M380S|SGH-T859|SGH-T869|SCH-I905|GT-P6210|GT-P6800|GT-P7300|GT-P7510|GT-P7500|GT-P3100)/';
-		$type['Samsung Galaxy Tab'] = 'tablet';
-		
-		$pattern['Samsung Galaxy Note'] = '/GT-N7000/';
-		$type['Samsung Galaxy Note'] = 'mobile';
-		
-		$pattern['Android Phone'] = '/(; |\()Android/';
-		$type['Android Phone'] = 'mobile';
+		$pattern = $this->xml['device']['pattern'];
 		
 		foreach($pattern as $key=>$value)
 		{
+			$value = '/'.$value.'/';
 			if(preg_match($value,$this->ua))
 			{
-				$this->set_device($key,$type[$key]);
+				$this->set_device($key,$this->xml['device']['type'][$key]);
 				break;
 			}
 		}
 	}
 	
-	/*
-	 * setter of DEVICE property
+	/**
+	 * Setter of DEVICE property
 	*/ 
 	
 	private function set_device($name,$type)
@@ -270,157 +230,24 @@ class DetectBrowser
 	}
 	
 	/*
-	 * detection of OS propery
+	 * Detect information about OS
 	*/ 
 	private function detect_os()
-	{
-		/*
-		 * Arrays:
-		 * pattern - Regular Expression pattern
-		 * family - family of OS ( unix | mac | win )
-		 * phrese - part of Regular Expression to detect OS  Version like (%phrase %version or %version %phrase)
-		*/
-		
-		$pattern['Android'] = '/(; |\()Android/';
-		$family['Android'] = 'unix';
-		
-		$pattern['iOS'] = '/like Mac OS X/';
-		$family['iOS'] = 'mac';
-		$phrase['iOS'] = 'like Mac OS X';
-		
-		$pattern['Ubuntu'] = '/Ubuntu/';
-		$family['Ubuntu'] = 'unix';
-		
-		$pattern['Bada'] = '/Bada/';
-		$family['Bada'] = 'unix';
-		
-		$pattern['Maemo'] = '/Maemo/';
-		$family['Maemo'] = 'unix';
-		
-		$pattern['Chromium OS'] = '/CrOS/';
-		$family['Chromium OS'] = 'unix';
-	
-		$pattern['Free BSD'] = '/FreeBSD/';
-		$family['Fre BSD'] = 'unix';
-		
-		$pattern['Arch Linux'] = '/Arch Linux/';
-		$family['Arch Linux'] = 'unix';
-		
-		$pattern['Cent OS'] = '/CentOS/';
-		$family['Cent OS'] = 'unix';
-		
-		$pattern['debian'] = '/Debian/';
-		$family['Debian'] = 'unix';
-		
-		$pattern['Fedora'] = '/Fedora/';
-		$family['Fedora'] = 'unix';
-		
-		$pattern['Gentoo'] = '/Gentoo/';
-		$family['Gentoo'] = 'unix';
-		
-		$pattern['Kanotix'] = '/(kanotix|Kanotix)/';
-		$family['Kanotix'] = 'unix';
-		
-		$pattern['Mandriva'] = '/Mandriva/';
-		$family['Mandriva'] = 'unix';
-		
-		$pattern['Mint'] = '/Mint/';
-		$family['Mint'] = 'unix';
-		
-		$pattern['Red Hat'] = '/Red Hat/';
-		$family['Red Hat'] = 'unix';
-		
-		$pattern['Slackware'] = '/Slackware/';
-		$family['Slackware'] = 'unix';
-		
-		$pattern['SUSE'] = '/SUSE/';
-		$family['SUSE'] = 'unix';
-		
-		$pattern['Mac OS X'] = '/Mac OS X/';
-		$family['Mac OS X'] = 'mac';
-		
-		$pattern['Morph OS'] = '/MorphOS/';
-		$family['Morph OS'] = 'unix';
-		
-		$pattern['Minix'] = '/Minix/';
-		$family['Minix'] = 'unix';
-		
-		$pattern['Net BSD'] = '/NetBSD/';
-		$family['Net BSD'] = 'unix';
-		
-		$pattern['AROS'] = '/AROS/';
-		$family['AROS'] = 'unix';
-		
-		$pattern['Amiga'] = '/Amiga/';
-		$family['Amiga'] = 'unix';
-		
-		$pattern['Be OS'] = '/BeOS/';
-		$family['Be OS'] = 'unix';
-		
-		$pattern['Dragonfly BSD'] = '/DragonFly/';
-		$family['DragonFly BSD'] = 'unix';
-		
-		$pattern['HP UX'] = '/HP-UX/';
-		$family['HP UX'] = 'unix';
-		
-		$pattern['IRIX'] = '/IRIX/';
-		$family['IRIX'] = 'unix';
-		
-		$pattern['Joli OS'] = '/Jolicloud/';
-		$family['Joli OS'] = 'unix';
-		
-		$pattern['Nintendo Wii'] = '/Nintendo Wii/';
-		$family['Nintendo Wii'] = 'unix';
-		
-		$pattern['Open BSD'] = '/OpenBSD/';
-		$family['Open BSD'] = 'unix';
-		
-		$pattern['Palm OS'] = '/Palm OS/';
-		$family['Palm OS'] = 'unix';
-		
-		$pattern['PC Linux OS'] = '/PCLinuxOS/';
-		$family['PC Linux OS'] = 'unix';
-		
-		$pattern['RIM OS'] = '/BlackBerry/';
-		$family['RIM OS'] = 'unix';
-		
-		$pattern['RIM Tablet OS'] = '/RIM Tablet OS/';
-		$family['RIM Tablet OS'] = 'unix';
-		
-		$pattern['Solaris'] = '/SunOS/';
-		$family['Solaris'] = 'unix';
-		
-		$pattern['Syllable'] = '/Syllable/';
-		$family['Syllable'] = 'unix';
-		
-		$pattern['Tizen'] = '/Tizen/';
-		$family['Tizen'] = 'unix';
-		
-		$pattern['Web OS'] = '/(webOS|hpwOS)/';
-		$family['Web OS'] = 'unix';
-
-		$pattern['Symbian'] = '/(SymbOS|Symbian)/';
-		$family['Symbian'] = 'unix';
-		$phrase['Symbian'] = '(SymbOS|SymbianOS|Symbian)';
-
-						
-		$pattern['Linux'] = '/(Linux|X11)/';
-		$family['Linux'] = 'unix';
-
-		$pattern['Windows'] = '/(Windows|Win|WP)/';
-		$family['Windows'] = 'win';
+	{		
+		$pattern = $this->xml['os']['pattern'];
 		
 		foreach($pattern as $key=>$value)
 		{
+			$value = '/'.$value.'/';
 			if(preg_match($value,$this->ua))
 			{
-				if(isset($phrase[$key]))
+				if(isset($this->xml['os']['version_pattern'][$key]))
 				{
-					$this->set_os($key,$family[$key],$phrase[$key]);
+					$this->set_os($key,$this->xml['os']['family'][$key],$this->xml['os']['version_pattern'][$key]);
 				}
 				else
 				{
-					$this->set_os($key,$family[$key]);
+					$this->set_os($key,$this->xml['os']['family'][$key]);
 				}
 				break;
 			}
@@ -428,7 +255,7 @@ class DetectBrowser
 	}
 	
 	/*
-	 * setter for OS property
+	 * Setter for OS property
 	*/ 
 	
 	private function set_os($name,$family,$phrase='same')
@@ -445,8 +272,8 @@ class DetectBrowser
 		}
 	}
 	
-	/*
-	 * detection version of OS
+	/**
+	 * Detect OS version
 	*/ 
 	
 	private function detect_os_version($phrase)
@@ -503,6 +330,59 @@ class DetectBrowser
 					$this->os['version'] = $key;
 					break;
 				}
+			}
+		}
+		$this->fix_os_version();
+	}
+	
+	/**
+	 * Fix problems with detection of OS version
+	 */
+	private function fix_os_version()
+	{
+		if(isset($this->os['version']))
+		{
+			$replace = array('based.','Fir','fc','update');
+			foreach($replace as $key)
+			{
+				$this->os['version'] = str_replace($key,'',$this->os['version']);
+			}
+		}
+	}
+	
+	/**
+	 * Fix some problems
+	*/
+	private function fix()
+	{
+		/* Fix Mobile Safari detection */
+		if($this->device['type'] == 'mobile' && $this->browser['name'] == 'Safari' || $this->device['type'] == 'tablet' && $this->browser['name'] == 'Safari')
+		{
+			$this->browser['type'] = 'mobile';
+		} 
+		
+		/* Fix Android browser detection */
+		if($this->os['name'] == 'Android' && $this->browser['name'] == 'Safari')
+		{
+			$this->browser['name'] = 'Android Browser';
+		}
+		
+		/* Fix PC detection */
+		if($this->os['family'] == 'win' || $this->os['name'] == 'Mac OS X' || $this->browser['type'] == 'desktop')
+		{
+			if($this->device['type'] == 'none')
+			{
+				$this->set_device('PC','pc');
+			}
+		}
+		
+		/* Fix Mobile phones detection */
+		
+		if($this->browser['name'] == 'Opera Mini' || $this->browser['name'] == 'Opera Mobile')
+		{
+			if($this->device['type'] == 'none')
+			{
+				$this->set_device('Mobile phone','mobile');
 			}
 		}
 	}

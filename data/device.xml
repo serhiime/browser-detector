@@ -1,0 +1,79 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<examples>
+	<example id="iPhone">
+		<pattern>iPhone</pattern>
+		<type>mobile</type>
+	</example>
+	<example id="iPod">
+		<pattern>(iPod|itouch)</pattern>
+		<type>mobile</type>
+	</example>
+	<example id="iPad">
+		<pattern>iPad</pattern>
+		<type>tablet</type>
+	</example>
+	<example id="Amazon Kindle Fire">
+		<pattern>Kindle Fire</pattern>
+		<type>tablet</type>
+	</example>
+	<example id="Motorola">
+		<pattern>(MOT|Motorola|MOT-|MOTOZINE|XT|Mot)</pattern>
+		<type>mobile</type>
+	</example>
+	<example id="Sony Ericsson">
+		<pattern>SonyEricsson</pattern>
+		<type>mobile</type>
+	</example>
+	<example id="Nokia">
+		<pattern>(Nokia|N900|nokia|NOKIA|Series 60|Series 40|S60|S40)</pattern>
+		<type>mobile</type>
+	</example>
+	<example id="Siemens">
+		<pattern>SIE-</pattern>
+		<type>mobile</type>
+	</example>
+	<example id="HTC">
+		<pattern>(HTC|Desire|001HT|C720|c720|Espresso|S700)</pattern>
+		<type>mobile</type>
+	</example>
+	<example id="BenQ">
+		<pattern>(benq|BenQ|BENQ)</pattern>
+		<type>mobile</type>
+	</example>
+	<example id="Google">
+		<pattern>(Nexus|Google)</pattern>
+		<type>mobile</type>
+	</example>
+	<example id="Philips">
+		<pattern>(PHILIPS|Philips|philips)</pattern>
+		<type>mobile</type>
+	</example>
+	<example id="LG">
+		<pattern>LG</pattern>
+		<type>mobile</type>
+	</example>
+	<example id="Black Berry Tablet">
+		<pattern>RIM Tablet</pattern>
+		<type>tablet</type>
+	</example>
+	<example id="Black Berry">
+		<pattern>BlackBerry</pattern>
+		<type>mobile</type>
+	</example>
+	<example id="Samsung">
+		<pattern>(SAMSUNG|Samsung|samsung|sam-r|GT-|SHW-|SCH-|SGH)</pattern>
+		<type>mobile</type>
+	</example>
+	<example id="Samsung Galaxy Tab">
+		<pattern>(GT-P1000|SCH-I800|GT-P5100|GT-P7511|GT-P6810|SHW-M380S|SGH-T859|SGH-T869|SCH-I905|GT-P6210|GT-P6800|GT-P7300|GT-P7510|GT-P7500|GT-P3100)</pattern>
+		<type>tablet</type>
+	</example>
+		<example id="Samsung Galaxy Note">
+		<pattern>GT-N7000</pattern>
+		<type>mobile</type>
+	</example>
+	<example id="Android Phone">
+		<pattern>(; |\()Android</pattern>
+		<type>mobile</type>
+	</example>
+</examples>

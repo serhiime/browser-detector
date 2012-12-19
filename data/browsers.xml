@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<examples>
+	<example id="Firefox">
+		<pattern>Firefox</pattern>
+		<version_pattern>Firefox</version_pattern>
+		<type>desktop</type>
+	</example>
+	<example id="Chromium">
+		<pattern>Chromium</pattern>
+		<version_pattern>Chromium</version_pattern>
+		<type>desktop</type>
+	</example>
+	<example id="Google Chrome">
+		<pattern>Chrome</pattern>
+		<version_pattern>Chrome</version_pattern>
+		<type>desktop</type>
+	</example>
+	<example id="Opera Mini">
+		<pattern>Opera Mini</pattern>
+		<version_pattern>Opera Mini</version_pattern>
+		<type>mobile</type>
+	</example>
+	<example id="Opera Mobile">
+		<pattern>Opera Mobi</pattern>
+		<version_pattern>Opera Mobi</version_pattern>
+		<type>mobile</type>
+	</example>
+	<example id="Opera">
+		<pattern>Opera</pattern>
+		<version_pattern>Version</version_pattern>
+		<type>desktop</type>
+	</example>
+	<example id="Internet Explorer Mobile">
+		<pattern>IEMobile</pattern>
+		<version_pattern>IEMobile</version_pattern>
+		<type>mobile</type>
+	</example>
+	<example id="Internet Explorer">
+		<pattern>MSIE</pattern>
+		<version_pattern>MSIE</version_pattern>
+		<type>desktop</type>
+	</example>
+	<example id="Safari">
+		<pattern>Safari</pattern>
+		<version_pattern>Version</version_pattern>
+		<type>desktop</type>
+	</example>
+</examples>

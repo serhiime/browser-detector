@@ -1,0 +1,208 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<examples>
+	<example id="Android">
+		<pattern>(; |\()Android</pattern>
+		<version_pattern>Android</version_pattern>
+		<family>unix</family>
+		<type>mobile</type>
+	</example>
+	<example id="iOS">
+		<pattern>like Mac OS X</pattern>
+		<version_pattern>like Mac OS X</version_pattern>
+		<family>mac</family>
+		<type>mobile</type>
+	</example>
+	<example id="Ubuntu">
+		<pattern>Ubuntu</pattern>
+		<family>unix</family>
+		<type>desktop</type>
+	</example>
+	<example id="Bada">
+		<pattern>Bada</pattern>
+		<version_pattern>Bada</version_pattern>
+		<family>unix</family>
+		<type>mobile</type>
+	</example>
+	<example id="Maemo">
+		<pattern>Maemo</pattern>
+		<version_pattern>Maemo</version_pattern>
+		<family>unix</family>
+		<type>mobile</type>
+	</example>
+	<example id="Chromium OS">
+		<pattern>CrOS</pattern>
+		<family>unix</family>
+		<type>desktop</type>
+	</example>
+	<example id="Free BSD">
+		<pattern>FreeBSD</pattern>
+		<family>unix</family>
+		<type>desktop</type>
+	</example>
+	<example id="Arch Linux">
+		<pattern>Arch Linux</pattern>
+		<family>unix</family>
+		<type>desktop</type>
+	</example>
+	<example id="Debian">
+		<pattern>Debian</pattern>
+		<family>unix</family>
+		<type>desktop</type>
+	</example>
+	<example id="Fedora">
+		<pattern>Fedora</pattern>
+		<family>unix</family>
+		<type>desktop</type>
+	</example>
+	<example id="Gentoo">
+		<pattern>Gentoo</pattern>
+		<family>unix</family>
+		<type>desktop</type>
+	</example>
+	<example id="Kanotix">
+		<pattern>(kanotix|Kanotix)</pattern>
+		<family>unix</family>
+		<type>desktop</type>
+	</example>
+	<example id="Mandriva">
+		<pattern>Mandriva</pattern>
+		<family>unix</family>
+		<type>desktop</type>
+	</example>
+	<example id="Mint">
+		<pattern>Mint</pattern>
+		<family>unix</family>
+		<type>desktop</type>
+	</example>
+	<example id="Red Hat">
+		<pattern>Red Hat</pattern>
+		<family>unix</family>
+		<type>desktop</type>
+	</example>
+	<example id="Slackware">
+		<pattern>Slackware</pattern>
+		<family>unix</family>
+		<type>desktop</type>
+	</example>
+	<example id="SUSE">
+		<pattern>SUSE</pattern>
+		<family>unix</family>
+		<type>desktop</type>
+	</example>
+	<example id="Morph OS">armv7l
+		<pattern>MorphOS</pattern>
+		<family>unix</family>
+		<type>desktop</type>
+	</example>
+	<example id="Minix">
+		<pattern>Minix</pattern>
+		<family>unix</family>
+		<type>desktop</type>
+	</example>
+	<example id="Net BSD">
+		<pattern>NetBSD</pattern>
+		<family>unix</family>
+		<type>desktop</type>
+	</example>
+	<example id="Amiga">
+		<pattern>Amiga</pattern>
+		<family>unix</family>
+		<type>desktop</type>
+	</example>
+	<example id="AROS">
+		<pattern>AROS</pattern>
+		<family>unix</family>
+		<type>desktop</type>
+	</example>
+	<example id="Be OS">
+		<pattern>BeOS</pattern>
+		<family>unix</family>
+		<type>desktop</type>
+	</example>
+	<example id="Dragonfly BSD">
+		<pattern>DragonflyBSD</pattern>
+		<family>unix</family>
+		<type>desktop</type>
+	</example>
+	<example id="HP UX">
+		<pattern>HP-UX</pattern>
+		<family>unix</family>
+		<type>desktop</type>
+	</example>
+	<example id="IRIX">
+		<pattern>IRIX</pattern>
+		<family>unix</family>
+		<type>desktop</type>
+	</example>
+	<example id="Joli OS">
+		<pattern>Jolicloud</pattern>
+		<family>unix</family>
+		<type>desktop</type>
+	</example>
+	<example id="Nintendo Wii">
+		<pattern>Nintendo Wii</pattern>
+		<family>unix</family>
+		<type>desktop</type>
+	</example>
+	<example id="Open BSD">
+		<pattern>OpenBSD</pattern>
+		<family>unix</family>
+		<type>desktop</type>
+	</example>
+	<example id="Palm OS">
+		<pattern>Palm OS</pattern>
+		<family>unix</family>
+		<type>desktop</type>
+	</example>
+	<example id="PC Linux OS">
+		<pattern>PCLinuxOS</pattern>
+		<family>unix</family>
+		<type>desktop</type>
+	</example>
+	<example id="RIM OS">
+		<pattern>BlackBerry</pattern>
+		<family>unix</family>
+		<type>mobile</type>
+	</example>
+	<example id="RIM Tablet OS">
+		<pattern>RIM Tablet OS</pattern>
+		<family>unix</family>
+		<type>mobile</type>
+	</example>
+	<example id="Solaris">
+		<pattern>SunOS</pattern>
+		<family>unix</family>
+		<type>desktop</type>
+	</example>
+	<example id="Syllable">
+		<pattern>Syllable</pattern>
+		<family>unix</family>
+		<type>desktop</type>
+	</example>
+	<example id="Tizen">
+		<pattern>Tizen</pattern>
+		<family>unix</family>
+		<type>mobile</type>
+	</example>
+	<example id="Web OS">
+		<pattern>(webOS|hpwOS)</pattern>
+		<family>unix</family>
+		<type>desktop</type>
+	</example>
+	<example id="Symbian">
+		<pattern>(SymbOS|Symbian)</pattern>
+		<version_pattern>(SymbOS|SymbianOS|Symbian)</version_pattern>
+		<family>unix</family>
+		<type>mobile</type>
+	</example>
+	<example id="Linux">
+		<pattern>(Linux|X11)</pattern>
+		<family>unix</family>
+		<type>desktop</type>
+	</example>
+	<example id="Windows">
+		<pattern>(Windows|Win|WP)</pattern>
+		<family>win</family>
+		<type>desktop</type>
+	</example>
+</examples>

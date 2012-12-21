@@ -6,20 +6,20 @@
 
 Demo: http://endorphinua.ru/
 
-How to use:
+**How to use:**
 
 	<?php
 		include_once($_SERVER['DOCUMENT_ROOT'].'/lib/class.detectbrowser.php'); //including lib
 		$detector = new DetectBrowser(); // detection
 	?>
 
-Methods:
+**Methods:**
 
 	get_os() - get information about user Operating System
 	get_device() - get information about user Device
 	get_browser() - get information about user Browser
 	
-Example:
+**Example:**
 
 	<?
 		$os = $detector->get_os();
@@ -29,7 +29,7 @@ Example:
 		$browser = $detector->get_browser();
 		print_r($browser);
 	?>
-OS structure:
+**OS structure:**
 
 	Array
 	(
@@ -38,7 +38,7 @@ OS structure:
 		[type] => desktop
 	)
 
-DEVICE structure:
+**DEVICE structure:**
 
 	Array
 	(
@@ -46,7 +46,7 @@ DEVICE structure:
 		[type] => pc
 	)
 
-BROWSER structure:
+**BROWSER structure:**
 
 	Array
 	(
@@ -61,3 +61,53 @@ BROWSER structure:
 	Лицензия: GPL
 
 Демо: http://endorphinua.ru/
+
+
+**Использование:**
+
+	<?php
+		include_once($_SERVER['DOCUMENT_ROOT'].'/lib/class.detectbrowser.php'); //подключаем библиотеку
+		$detector = new DetectBrowser(); // определение ос, устройства и браузера
+	?>
+
+**Методы:**
+
+	get_os() - получение ассоциативного массива с информацией о ОС пользователя
+	get_device() - получение ассоциативного массива с информацией о устройстве с которого пользователь просмотривает страницу
+	get_browser() - получение ассоциативного массива с информацией о браузере пользователя
+	
+**Пример:**
+
+	<?
+		$os = $detector->get_os(); // получаем информацию о ОС
+		print_r($os); // выводим структуру ОС
+		$device = $detector->get_device(); // получаем информацию о устройстве пользователя
+		print_r($device); // выводим структуру устройства
+		$browser = $detector->get_browser(); // получаем информацию о браузере пользователя
+		print_r($browser); // выводим структуру браузера
+	?>
+**Структура ОС:**
+
+	Array
+	(
+		[name] => Ubuntu
+		[family] => unix
+		[type] => desktop
+	)
+
+**Структура устройства:**
+
+	Array
+	(
+		[name] => PC
+		[type] => pc
+	)
+
+**Структура браузера:**
+
+	Array
+	(
+		[name] => Firefox
+		[version] => 15.0
+		[type] => desktop
+	)

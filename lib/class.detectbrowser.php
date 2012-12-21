@@ -6,8 +6,7 @@
  * @package ru.endorphinua.lib
  * @license: GPL
  */
-define("ROOT",$_SERVER['DOCUMENT_ROOT']); // ROOT directory
-
+define('ROOT',$_SERVER['DOCUMENT_ROOT']);
 class DetectBrowser
 {
 	/**
@@ -263,6 +262,7 @@ class DetectBrowser
 	{
 		$this->os['name'] = $name;
 		$this->os['family'] = $family;
+		$this->os['type'] = $this->xml['os']['type'][$name];
 		if($phrase == 'same')
 		{
 			$this->detect_os_version($name);
@@ -361,6 +361,12 @@ class DetectBrowser
 		{
 			$this->browser['type'] = 'mobile';
 		} 
+		
+		/* Fix Mobile Firefox detection */
+		if($this->browser['name'] == 'Firefox' && $this->device['type'] == 'mobile' || $this->browser['name'] == 'Firefox' && $this->os['name'] == 'Android')
+		{
+			$this->browser['type'] = 'mobile';
+		}
 		
 		/* Fix Android browser detection */
 		if($this->os['name'] == 'Android' && $this->browser['name'] == 'Safari')

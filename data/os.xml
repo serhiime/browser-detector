@@ -89,7 +89,7 @@
 		<family>unix</family>
 		<type>desktop</type>
 	</example>
-	<example id="Morph OS">armv7l
+	<example id="Morph OS">
 		<pattern>MorphOS</pattern>
 		<family>unix</family>
 		<type>desktop</type>
@@ -152,7 +152,7 @@
 	<example id="Palm OS">
 		<pattern>Palm OS</pattern>
 		<family>unix</family>
-		<type>desktop</type>
+		<type>mobile</type>
 	</example>
 	<example id="PC Linux OS">
 		<pattern>PCLinuxOS</pattern>

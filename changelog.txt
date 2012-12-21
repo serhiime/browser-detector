@@ -1,3 +1,7 @@
+v 1.1.1:
+	- fix mobile Firefox detection
+	- fix Palm OS detection
+	- update Demo
 v 1.1:
 	- Code refactoring
 v 1.0.6: 

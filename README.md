@@ -1,7 +1,7 @@
 ##EN
 	Author: Sergey Nehaenko <sergey.nekhaenko@gmail.com>
-	Current Version: 1.1.1
-	Last Update: 21.12.2012
+	Current Version: 1.1.2
+	Last Update: 22.12.2012
 	License: GPL
 
 Demo: http://endorphinua.ru/
@@ -56,8 +56,8 @@ Demo: http://endorphinua.ru/
 	)
 ##RU
 	Автор: Sergey Nehaenko <sergey.nekhaenko@gmail.com>
-	Текущая версия: 1.1.1
-	Последнее обновление: 21.12.2012
+	Текущая версия: 1.1.2
+	Последнее обновление: 22.12.2012
 	Лицензия: GPL
 
 Демо: http://endorphinua.ru/

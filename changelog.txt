@@ -1,3 +1,6 @@
+v 1.1.2:
+	- fixed Android tablets detection
+	- fixed Chrome mobile detection (for Android and iOS)
 v 1.1.1:
 	- fix mobile Firefox detection
 	- fix Palm OS detection

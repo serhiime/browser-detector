@@ -72,7 +72,7 @@
 		<pattern>GT-N7000</pattern>
 		<type>mobile</type>
 	</example>
-	<example id="Android Phone">
+	<example id="Android">
 		<pattern>(; |\()Android</pattern>
 		<type>mobile</type>
 	</example>

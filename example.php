@@ -20,7 +20,7 @@ $device = $endorphin->get_device();
 			.container
 			{
 				width: 400px;
-				margin: 200px auto;
+				margin: 10% auto;
 			}
 			.block
 			{
@@ -48,7 +48,7 @@ $device = $endorphin->get_device();
 			{
 				float: left;
 				vertical-align: center;
-				padding: 40px 25px;
+				padding: 30px 25px;
 				color: #fff;
 				height: 100%;
 				margin: auto 20px;
@@ -84,6 +84,10 @@ $device = $endorphin->get_device();
 				</div>
 				<div class="info">
 					<div>Your OS is: <? echo $os['name']; ?></div>
+					<? if(isset($os['version']))
+					{?>
+					<div>OS version: <? echo $os['version']; ?></div>
+					<?}?>
 					<div>OS type: <? echo $os['type']; ?></div>
 					<div>OS family: <? echo $os['family']; ?></div>
 				</div>

@@ -191,7 +191,7 @@ class DetectBrowser
 		{
 			preg_match($version,$this->ua,$v);
 			@$version = $v[0];
-			$version = str_replace($phrase,'',$version);
+			$version = preg_replace('/'.$phrase.'/','',$version);
 			$version = str_replace(';','',$version);
 			$version = str_replace(' ','',$version);
 			$version = str_replace('/','',$version);
@@ -263,11 +263,7 @@ class DetectBrowser
 		$this->os['name'] = $name;
 		$this->os['family'] = $family;
 		$this->os['type'] = $this->xml['os']['type'][$name];
-		if($phrase == 'same')
-		{
-			$this->detect_os_version($name);
-		}
-		else
+		if($phrase != 'same')
 		{
 			$this->detect_os_version($phrase);
 		}
@@ -368,6 +364,12 @@ class DetectBrowser
 			$this->browser['type'] = 'mobile';
 		}
 		
+		/* Fix Chrome mobile detection */
+		if($this->browser['name'] == 'Google Chrome' && $this->os['name'] == 'Android' || $this->browser['name'] == 'Google Chrome' && $this->os['name'] == 'iOS')
+		{
+			$this->browser['type'] = 'mobile';
+		}
+		
 		/* Fix Android browser detection */
 		if($this->os['name'] == 'Android' && $this->browser['name'] == 'Safari')
 		{
@@ -381,6 +383,25 @@ class DetectBrowser
 			{
 				$this->set_device('PC','pc');
 			}
+		}
+		
+		/* Fix Google phone detection */
+		if($this->device['name'] == 'Google' && $this->os['name'] == 'Android')
+		{
+			$this->device['name'] = 'Android';
+		}
+		
+		/* Fix Android tablets detection */
+		if($this->os['name'] == 'Android' && preg_match('/Mobile/',$this->ua))
+		{
+			$this->device['name'] = 'Android';
+			$this->device['type'] = 'mobile';
+		}
+		/* Fix Android tablets detection */
+		if($this->os['name'] == 'Android' && !preg_match('/Mobile/',$this->ua))
+		{
+			$this->device['name'] = 'Android';
+			$this->device['type'] = 'tablet';
 		}
 		
 		/* Fix Mobile phones detection */

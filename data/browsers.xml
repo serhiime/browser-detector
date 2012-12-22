@@ -11,8 +11,8 @@
 		<type>desktop</type>
 	</example>
 	<example id="Google Chrome">
-		<pattern>Chrome</pattern>
-		<version_pattern>Chrome</version_pattern>
+		<pattern>(Chrome|CriOS)</pattern>
+		<version_pattern>(Chrome|CriOS)</version_pattern>
 		<type>desktop</type>
 	</example>
 	<example id="Opera Mini">

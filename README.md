@@ -6,7 +6,7 @@
 
 Demo: http://endorphinua.ru/
 
-![http://endorphinua.ru/images/demo.png](Demo)
+![Demo](http://endorphinua.ru/images/demo.png)
 
 
 **How to use:**

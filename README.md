@@ -6,8 +6,17 @@
 
 Demo: http://endorphinua.ru/
 
+Browser screenshot from Desktop:
+
 ![Demo](http://endorphinua.ru/images/demo.png)
 
+Browser screenshot from iPhone (Opera Mini):
+
+![Demo](http://endorphinua.ru/images/iPhone-Screenshot.png)
+
+Browser screenshot from iPhone (Safari):
+
+![Demo](http://endorphinua.ru/images/iPhone-Safari.png)
 
 **How to use:**
 

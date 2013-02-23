@@ -1,6 +1,6 @@
 <?php
 /**
- * @version 1.1
+ * @version 1.1.3
  * @author Sergey Nehaenko <sergey.nekhaenko@gmail.com>
  * @copyright Copyright (c) Sergey Nehaenko 2012
  * @package ru.endorphinua.lib
@@ -352,6 +352,13 @@ class DetectBrowser
 	*/
 	private function fix()
 	{
+		/* Fix Chrome Mobile Detection */
+		if($this->browser['name'] == 'Google Chrome' && $this->os['name'] == 'Android' || $this->browser['name'] == 'Google Chrome' && $this->os['name'] == 'iOS' || $this->browser['name'] == 'Google Chrome' && $this->device['type'] == 'mobile' || $this->browser['name'] == 'Google Chrome' && $this->device['type'] == 'tablet')
+		{
+			$this->browser['name'] = 'Chrome Mobile';
+			$this->browser['type'] = 'mobile';
+		}
+		
 		/* Fix Mobile Safari detection */
 		if($this->device['type'] == 'mobile' && $this->browser['name'] == 'Safari' || $this->device['type'] == 'tablet' && $this->browser['name'] == 'Safari')
 		{

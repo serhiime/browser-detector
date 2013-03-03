@@ -24,6 +24,12 @@
 		<type>desktop</type>
 	</example>
 	
+	<example id="Flock">
+		<pattern>Flock</pattern>
+		<version_pattern>Flock</version_pattern>
+		<type>desktop</type>
+	</example>
+	
 	<example id="Atomic">
 		<pattern>AtomicBrowser</pattern>
 		<version_pattern>AtomicBrowser</version_pattern>
@@ -105,6 +111,12 @@
 	<example id="Internet Explorer">
 		<pattern>MSIE</pattern>
 		<version_pattern>MSIE</version_pattern>
+		<type>desktop</type>
+	</example>
+	
+	<example id="Columbus">
+		<pattern>Columbus</pattern>
+		<version_pattern>Columbus</version_pattern>
 		<type>desktop</type>
 	</example>
 	

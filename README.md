@@ -1,7 +1,7 @@
 ##EN
 	Author: Sergey Nehaenko <sergey.nekhaenko@gmail.com>
-	Current Version: 1.1.3
-	Last Update: 23.02.2012
+	Current Version: 1.1.4
+	Last Update: 03.03.2012
 	License: GPL
 
 Demo: http://endorphinua.ru/

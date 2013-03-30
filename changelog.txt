@@ -1,3 +1,7 @@
+v 1.1.5:
+	added tests
+	browsers support:
+		- Skyfire
 v 1.1.4:
 	browser support:
 		- Columbus

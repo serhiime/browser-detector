@@ -30,6 +30,12 @@
 		<type>desktop</type>
 	</example>
 	
+	<example id="Dolphin">
+		<pattern>(Dolfin|Dolphin)</pattern>
+		<version_pattern>(Dolfin|Dolphin)</version_pattern>
+		<type>mobile</type>
+	</example>
+	
 	<example id="Atomic">
 		<pattern>AtomicBrowser</pattern>
 		<version_pattern>AtomicBrowser</version_pattern>
@@ -81,6 +87,12 @@
 	<example id="Atomic">
 		<pattern>AtomicBrowser</pattern>
 		<version_pattern>AtomicBrowser</version_pattern>
+		<type>mobile</type>
+	</example>
+	
+	<example id="Skyfire">
+		<pattern>Skyfire</pattern>
+		<version_pattern>Skyfire</version_pattern>
 		<type>mobile</type>
 	</example>
 	

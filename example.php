@@ -1,6 +1,6 @@
 <?php
 include_once($_SERVER['DOCUMENT_ROOT'].'/lib/class.detectbrowser.php');
-$endorphin = new DetectBrowser();
+$endorphin = new DetectBrowser("Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_5_7; en-us) AppleWebKit/530.17 (KHTML, like Gecko) Version/4.0 Safari/530.17 Skyfire/2.0");
 $browser = $endorphin->get_browser();
 $os = $endorphin->get_os();
 $device = $endorphin->get_device();

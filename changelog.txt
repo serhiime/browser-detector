@@ -3,6 +3,9 @@ v 1.1.5:
 	browsers support:
 		- Skyfire
 		- Dolphin
+		- AOL Explorer
+		- Konqueror
+		
 v 1.1.4:
 	browser support:
 		- Columbus

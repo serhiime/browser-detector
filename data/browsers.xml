@@ -24,9 +24,21 @@
 		<type>desktop</type>
 	</example>
 	
+	<example id="AOL Explorer">
+		<pattern>AOL</pattern>
+		<version_pattern>AOL</version_pattern>
+		<type>desktop</type>
+	</example>
+	
 	<example id="Flock">
 		<pattern>Flock</pattern>
 		<version_pattern>Flock</version_pattern>
+		<type>desktop</type>
+	</example>
+	
+	<example id="Netscape Navigator">
+		<pattern>Netscape</pattern>
+		<version_pattern>Netscape</version_pattern>
 		<type>desktop</type>
 	</example>
 	
@@ -135,6 +147,12 @@
 	<example id="Safari">
 		<pattern>Safari</pattern>
 		<version_pattern>Version</version_pattern>
+		<type>desktop</type>
+	</example>
+	
+	<example id="Konqueror">
+		<pattern>Konqueror</pattern>
+		<version_pattern>Konqueror</version_pattern>
 		<type>desktop</type>
 	</example>
 </examples>

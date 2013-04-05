@@ -6,6 +6,24 @@
 		<type>desktop</type>
 	</example>
 	
+	<example id="CometBird">
+		<pattern>CometBird</pattern>
+		<version_pattern>CometBird</version_pattern>
+		<type>desktop</type>
+	</example>
+	
+	<example id="Kylo">
+		<pattern>Kylo</pattern>
+		<version_pattern>Kylo</version_pattern>
+		<type>desktop</type>
+	</example>
+	
+	<example id="iCab">
+		<pattern>iCab</pattern>
+		<version_pattern>iCab</version_pattern>
+		<type>desktop</type>
+	</example>
+	
 	<example id="Firefox">
 		<pattern>Firefox</pattern>
 		<version_pattern>Firefox</version_pattern>
@@ -18,6 +36,30 @@
 		<type>desktop</type>
 	</example>
 	
+	<example id="Beamrise">
+		<pattern>Beamrise</pattern>
+		<version_pattern>Beamrise</version_pattern>
+		<type>desktop</type>
+	</example>
+	
+	<example id="Camino">
+		<pattern>Camino</pattern>
+		<version_pattern>Camino</version_pattern>
+		<type>desktop</type>
+	</example>
+	
+	<example id="Columbus">
+		<pattern>Columbus</pattern>
+		<version_pattern>Columbus</version_pattern>
+		<type>desktop</type>
+	</example>
+
+	<example id="Deepnet Explorer">
+		<pattern>Deepnet Explorer</pattern>
+		<version_pattern>Deepnet Explorer</version_pattern>
+		<type>desktop</type>
+	</example>
+	
 	<example id="Yandex Browser">
 		<pattern>YaBrowser</pattern>
 		<version_pattern>YaBrowser</version_pattern>
@@ -27,6 +69,12 @@
 	<example id="AOL Explorer">
 		<pattern>AOL</pattern>
 		<version_pattern>AOL</version_pattern>
+		<type>desktop</type>
+	</example>
+	
+	<example id="IceWeasel">
+		<pattern>Iceweasel</pattern>
+		<version_pattern>Iceweasel</version_pattern>
 		<type>desktop</type>
 	</example>
 	

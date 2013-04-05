@@ -1,8 +1,8 @@
 <?php
 /**
- * @version 1.1.4
+ * @version 1.1.6
  * @author Sergey Nehaenko <sergey.nekhaenko@gmail.com>
- * @copyright Copyright (c) Sergey Nehaenko 2012
+ * @copyright Copyright (c) Sergey Nehaenko 2012-2013
  * @package ru.endorphinua.lib
  * @license: GPL
  */

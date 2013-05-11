@@ -1,3 +1,28 @@
+v 1.1.7:
+	browsers support:
+		- Chimera
+	device support:
+		- Google Nexus
+		- Dell Android phones
+		- Asus tablets
+		- Cisco Cius
+		- HTC Evo 3D
+		- Nokia Lumia 900
+		- NOOK Color
+		- NOOK Tablet
+		- NOOK HD
+		- NOOK HD+
+		- Pandigital Nova Digital Reader
+		- Pandigital SuperNova 8
+		- Samsung Focus Flash
+		- Toshiba Excite 10 T
+		- Toshiba Excite 7 T
+		- Toshiba Thrive 7
+		- Microsoft Surface
+	fixed:
+		- Motorolla phones detection
+		- Sumsung phones detection
+
 v 1.1.6:
 	browsers support:
 		- Beamrise

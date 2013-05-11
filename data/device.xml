@@ -4,74 +4,177 @@
 		<pattern>iPhone</pattern>
 		<type>mobile</type>
 	</example>
+	
 	<example id="iPod">
 		<pattern>(iPod|itouch)</pattern>
 		<type>mobile</type>
 	</example>
+
 	<example id="iPad">
 		<pattern>iPad</pattern>
 		<type>tablet</type>
 	</example>
+	
+	<example id="Dell">
+		<pattern>(Dell|DELL)</pattern>
+		<type>mobile</type>
+	</example>
+	
+	<example id="NOOK Color">
+		<pattern>NOOK BNRV200</pattern>
+		<type>reader</type>
+	</example>
+	
+	<example id="NOOK HD">
+		<pattern>BNTV400</pattern>
+		<type>tablet</type>
+	</example>
+
+	<example id="NOOK HD+">
+		<pattern>BNTV600</pattern>
+		<type>tablet</type>
+	</example>
+
+	<example id="NOOK Tablet">
+		<pattern>NOOK BNTV250</pattern>
+		<type>tablet</type>
+	</example>
+	
+	<example id="Pandigital Nova Digital Reader">
+		<pattern>pandigitalnova1\/sourceidDL00000021</pattern>
+		<type>reader</type>
+	</example>
+	
+	<example id="Samsung Focus Flash">
+		<pattern>SGH-i677</pattern>
+		<type>mobile</type>
+	</example>
+	
+	<example id="Toshiba Excite 10 T">
+		<pattern>AT300</pattern>
+		<type>tablet</type>
+	</example>
+
+	<example id="Toshiba Excite 7 T">
+		<pattern>AT270</pattern>
+		<type>tablet</type>
+	</example>
+
+	<example id="Toshiba Thrive 7">
+		<pattern>AT1S0</pattern>
+		<type>tablet</type>
+	</example>
+
+	<example id="Microsoft Surface">
+		<pattern>Windows NT 6.2; ARM;</pattern>
+		<type>tablet</type>
+	</example>
+		
+	<example id="Pandigital SuperNova 8">
+		<pattern>pandigitalsprnova1\/sourceidDL00000025</pattern>
+		<type>reader</type>
+	</example>
+	
+	<example id="HTC Evo 3D">
+		<pattern>(Evo|PG86100|EVO|Sprint )</pattern>
+		<type>mobile</type>
+	</example>
+
+	<example id="Nokia Lumia 900">
+		<pattern>(Lumia 900|Nokia 900)</pattern>
+		<type>mobile</type>
+	</example>
+	
+	<example id="Cisco Cius">
+		<pattern>(CIUS|cius)</pattern>
+		<type>tablet</type>
+	</example>
+	
+	<example id="Asus">
+		<pattern>(Asus|ASUS)</pattern>
+		<type>tablet</type>
+	</example>
+	
+	<example id="Google Nexus">
+		<pattern>Nexus</pattern>
+		<type>mobile</type>
+	</example>
+	
 	<example id="Amazon Kindle Fire">
 		<pattern>Kindle Fire</pattern>
 		<type>tablet</type>
 	</example>
+	
 	<example id="Motorola">
-		<pattern>(MOT|Motorola|MOT-|MOTOZINE|XT|Mot)</pattern>
+		<pattern>(MOT|Motorola|MOT-|MOTOZINE|XT|Mot|Droid|DROIDX|A1260|A1680|A555|A853|A855|A953|A955|A956|Motorola.*ELECTRIFY|Motorola.*i1|i867|i940|MB200|MB300|MB501|MB502|MB508|MB511|MB520|MB525|MB526|MB611|MB612|MB632|MB810|MB855|MB860|MB861|MB865|MB870|ME501|ME502|ME511|ME525|ME600|ME632|ME722|ME811|ME860|ME863|ME865|MT620|MT710|MT716|MT720|MT810|MT870|MT917|WX435|WX445|XT300|XT301|XT311|XT316|XT317|XT319|XT320|XT390|XT502|XT530|XT531|XT532|XT535|XT603|XT610|XT611|XT615|XT681|XT701|XT702|XT711|XT720|XT800|XT806|XT860|XT862|XT875|XT882|XT883|XT894|XT909|XT910|XT912|XT928|HRI39|Xoom)</pattern>
 		<type>mobile</type>
 	</example>
+	
 	<example id="Sony Ericsson">
 		<pattern>SonyEricsson</pattern>
 		<type>mobile</type>
 	</example>
+	
 	<example id="Nokia">
 		<pattern>(Nokia|N900|nokia|NOKIA|Series 60|Series 40|S60|S40)</pattern>
 		<type>mobile</type>
 	</example>
+	
 	<example id="Siemens">
 		<pattern>SIE-</pattern>
 		<type>mobile</type>
 	</example>
+	
 	<example id="HTC">
 		<pattern>(HTC|Desire|001HT|C720|c720|Espresso|S700)</pattern>
 		<type>mobile</type>
 	</example>
+	
 	<example id="BenQ">
 		<pattern>(benq|BenQ|BENQ)</pattern>
 		<type>mobile</type>
 	</example>
+	
 	<example id="Google">
-		<pattern>(Nexus|Google)</pattern>
+		<pattern>(Google)</pattern>
 		<type>mobile</type>
 	</example>
+	
 	<example id="Philips">
 		<pattern>(PHILIPS|Philips|philips)</pattern>
 		<type>mobile</type>
 	</example>
+	
 	<example id="LG">
 		<pattern>LG</pattern>
 		<type>mobile</type>
 	</example>
+	
 	<example id="Black Berry Tablet">
 		<pattern>RIM Tablet</pattern>
 		<type>tablet</type>
 	</example>
+	
 	<example id="Black Berry">
 		<pattern>BlackBerry</pattern>
 		<type>mobile</type>
 	</example>
+	
 	<example id="Samsung">
-		<pattern>(SAMSUNG|Samsung|samsung|sam-r|GT-|SHW-|SCH-|SGH)</pattern>
+		<pattern>(SAMSUNG|Samsung|samsung|sam-r|GT-|SHW-|SCH-|SGH|SPH-|SWC-)</pattern>
 		<type>mobile</type>
 	</example>
+	
 	<example id="Samsung Galaxy Tab">
 		<pattern>(GT-P1000|SCH-I800|GT-P5100|GT-P7511|GT-P6810|SHW-M380S|SGH-T859|SGH-T869|SCH-I905|GT-P6210|GT-P6800|GT-P7300|GT-P7510|GT-P7500|GT-P3100)</pattern>
 		<type>tablet</type>
 	</example>
-		<example id="Samsung Galaxy Note">
+	
+	<example id="Samsung Galaxy Note">
 		<pattern>GT-N7000</pattern>
 		<type>mobile</type>
 	</example>
+	
 	<example id="Android">
 		<pattern>(; |\()Android</pattern>
 		<type>mobile</type>

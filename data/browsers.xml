@@ -5,7 +5,13 @@
 		<version_pattern>Epiphany</version_pattern>
 		<type>desktop</type>
 	</example>
-	
+
+	<example id="Chimera">
+		<pattern>Chimera</pattern>
+		<version_pattern>Chimera</version_pattern>
+		<type>desktop</type>
+	</example>
+		
 	<example id="CometBird">
 		<pattern>CometBird</pattern>
 		<version_pattern>CometBird</version_pattern>

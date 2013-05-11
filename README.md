@@ -1,7 +1,7 @@
 ##EN
 	Author: Sergey Nehaenko <sergey.nekhaenko@gmail.com>
-	Current Version: 1.1.6
-	Last Update: 06.04.2012
+	Current Version: 1.1.7
+	Last Update: 11.05.2013
 	License: GPL
 
 Demo: http://endorphinua.ru/
@@ -27,18 +27,18 @@ Browser screenshot from iPhone (Safari):
 
 **Methods:**
 
-	get_os() - get information about user Operating System
-	get_device() - get information about user Device
-	get_browser() - get information about user Browser
+	getOs() - get information about user Operating System
+	getDevice() - get information about user Device
+	getBrowser() - get information about user Browser
 	
 **Example:**
 
 	<?
-		$os = $detector->get_os();
+		$os = $detector->getOs();
 		print_r($os);
-		$device = $detector->get_device();
+		$device = $detector->getDevice();
 		print_r($device);
-		$browser = $detector->get_browser();
+		$browser = $detector->getBrowser();
 		print_r($browser);
 	?>
 **OS structure:**
@@ -68,8 +68,8 @@ Browser screenshot from iPhone (Safari):
 	)
 ##RU
 	Автор: Sergey Nehaenko <sergey.nekhaenko@gmail.com>
-	Последняя версия: 1.1.6
-	Последнее обновление: 06.04.2012
+	Последняя версия: 1.1.7
+	Последнее обновление: 11.05.2013
 	Лицензия: GPL
 
 Демо: http://endorphinua.ru/
@@ -84,18 +84,18 @@ Browser screenshot from iPhone (Safari):
 
 **Методы:**
 
-	get_os() - Получение данных о операционной системе пользователя
-	get_device() - Получение данных о устройстве пользователя
-	get_browser() - Получение данных о браузере пользователя
+	getOs() - Получение данных о операционной системе пользователя
+	getDevice() - Получение данных о устройстве пользователя
+	getBrowser() - Получение данных о браузере пользователя
 	
 **Пример:**
 
 	<?
-		$os = $detector->get_os(); // получаем данные о операционной системе
+		$os = $detector->getOs(); // получаем данные о операционной системе
 		print_r($os); // выводим структуру массива
-		$device = $detector->get_device(); // получаем данные о устройтве
+		$device = $detector->getDevice(); // получаем данные о устройтве
 		print_r($device);  // выводим структуру массива
-		$browser = $detector->get_browser(); // Получаем данны о браузере
+		$browser = $detector->getBrowser(); // Получаем данны о браузере
 		print_r($browser);  // выводим структуру массива
 	?>
 **Структура $os:**

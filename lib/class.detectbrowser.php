@@ -48,17 +48,17 @@ class DetectBrowser
 		{
 			$this->ua = $ua;
 		}
-		$this->load_xml();
-		$this->detect_broswer();
-		$this->detect_device();
-		$this->detect_os();
+		$this->loadXml();
+		$this->detectBroswer();
+		$this->detectDevice();
+		$this->detectOs();
 		$this->fix();
 	}
 	
 	/**
 	 * Load the contents of xml files into an array
 	 */
-	private function load_xml()
+	private function loadXml()
 	{
 		$os = simplexml_load_file(ROOT.$this->xml_path['os']);
 		$browser = simplexml_load_file(ROOT.$this->xml_path['browser']);
@@ -100,7 +100,7 @@ class DetectBrowser
 	 * Getter for BROWSER property
 	*/
 	
-	public function get_browser()
+	public function getBrowser()
 	{
 		return $this->browser;
 	}
@@ -109,7 +109,7 @@ class DetectBrowser
 	 * Getter for OS property
 	*/ 
 
-	public function get_os()
+	public function getOs()
 	{
 		return $this->os;
 	}
@@ -118,7 +118,7 @@ class DetectBrowser
 	 * Getter for DEVICE property
 	*/ 
 
-	public function get_device()
+	public function getDevice()
 	{
 		return $this->device;
 	}
@@ -127,7 +127,7 @@ class DetectBrowser
 	 * Getter for USER AGENT property
 	 */ 
 	
-	public function get_ua()
+	public function getUa()
 	{
 		return $this->ua;
 	}
@@ -136,7 +136,7 @@ class DetectBrowser
 	 * Detect information about BROWSER
 	*/ 
 	
-	private function detect_broswer()
+	private function detectBroswer()
 	{	
 		$pattern = $this->xml['browser']['pattern'];
 		
@@ -147,11 +147,11 @@ class DetectBrowser
 			{
 				if(isset($this->xml['browser']['version_pattern'][$key]))
 				{
-					$this->set_browser($key,$this->xml['browser']['type'][$key],$this->xml['browser']['version_pattern'][$key]);
+					$this->setBrowser($key,$this->xml['browser']['type'][$key],$this->xml['browser']['version_pattern'][$key]);
 				}
 				else
 				{
-					$this->set_browser($key,$this->xml['browser']['type'][$key]);
+					$this->setBrowser($key,$this->xml['browser']['type'][$key]);
 				}
 				break;
 			}
@@ -162,17 +162,17 @@ class DetectBrowser
 	 * Setter for BROWSER property
 	*/ 
 	
-	private function set_browser($name,$type,$phrase='same')
+	private function setBrowser($name,$type,$phrase='same')
 	{
 		$this->browser['type'] = $type;
 		$this->browser['name'] = $name;
 		if($phrase == 'same')
 		{
-			$this->detect_browser_version($name);
+			$this->detectBrowserVersion($name);
 		}
 		else
 		{
-			$this->detect_browser_version($phrase);
+			$this->detectBrowserVersion($phrase);
 		}
 		if($name == 'Opera Mini')
 		{
@@ -184,7 +184,7 @@ class DetectBrowser
 	 * Detect BROWSER version
 	*/ 
 	 
-	private function detect_browser_version($phrase)
+	private function detectBrowserVersion($phrase)
 	{
 		$version = "/".$phrase."(\/| )[\w-._]{1,15}/";
 		if(preg_match($version,$this->ua))
@@ -204,7 +204,7 @@ class DetectBrowser
 	 * Detect information about DEVICE
 	*/ 
 	
-	private function detect_device()
+	private function detectDevice()
 	{
 		$pattern = $this->xml['device']['pattern'];
 		
@@ -213,7 +213,7 @@ class DetectBrowser
 			$value = '/'.$value.'/';
 			if(preg_match($value,$this->ua))
 			{
-				$this->set_device($key,$this->xml['device']['type'][$key]);
+				$this->setDevice($key,$this->xml['device']['type'][$key]);
 				break;
 			}
 		}
@@ -223,7 +223,7 @@ class DetectBrowser
 	 * Setter of DEVICE property
 	*/ 
 	
-	private function set_device($name,$type)
+	private function setDevice($name,$type)
 	{
 		$this->device['name'] = $name;
 		$this->device['type'] = $type;
@@ -232,7 +232,7 @@ class DetectBrowser
 	/*
 	 * Detect information about OS
 	*/ 
-	private function detect_os()
+	private function detectOs()
 	{		
 		$pattern = $this->xml['os']['pattern'];
 		
@@ -243,11 +243,11 @@ class DetectBrowser
 			{
 				if(isset($this->xml['os']['version_pattern'][$key]))
 				{
-					$this->set_os($key,$this->xml['os']['family'][$key],$this->xml['os']['version_pattern'][$key]);
+					$this->setOs($key,$this->xml['os']['family'][$key],$this->xml['os']['version_pattern'][$key]);
 				}
 				else
 				{
-					$this->set_os($key,$this->xml['os']['family'][$key]);
+					$this->setOs($key,$this->xml['os']['family'][$key]);
 				}
 				break;
 			}
@@ -258,14 +258,14 @@ class DetectBrowser
 	 * Setter for OS property
 	*/ 
 	
-	private function set_os($name,$family,$phrase='same')
+	private function setOs($name,$family,$phrase='same')
 	{
 		$this->os['name'] = $name;
 		$this->os['family'] = $family;
 		$this->os['type'] = $this->xml['os']['type'][$name];
 		if($phrase != 'same')
 		{
-			$this->detect_os_version($phrase);
+			$this->detectOsVersion($phrase);
 		}
 	}
 	
@@ -273,7 +273,7 @@ class DetectBrowser
 	 * Detect OS version
 	*/ 
 	
-	private function detect_os_version($phrase)
+	private function detectOsVersion($phrase)
 	{
 		if($this->os['family']!='win')
 		{
@@ -329,13 +329,13 @@ class DetectBrowser
 				}
 			}
 		}
-		$this->fix_os_version();
+		$this->fixOsVersion();
 	}
 	
 	/**
 	 * Fix problems with detection of OS version
 	 */
-	private function fix_os_version()
+	private function fixOsVersion()
 	{
 		if(isset($this->os['version']))
 		{
@@ -388,7 +388,7 @@ class DetectBrowser
 		{
 			if($this->device['type'] == 'none')
 			{
-				$this->set_device('PC','pc');
+				$this->setDevice('PC','pc');
 			}
 		}
 		
@@ -398,16 +398,22 @@ class DetectBrowser
 			$this->device['name'] = 'Android';
 		}
 		
-		/* Fix Android tablets detection */
+		/* Fix Android mobile phones detection */
 		if($this->os['name'] == 'Android' && preg_match('/Mobile/',$this->ua))
 		{
-			$this->device['name'] = 'Android';
+			if($this->device['name'] == 'none')
+			{
+				$this->device['name'] = 'Android';
+			}
 			$this->device['type'] = 'mobile';
 		}
 		/* Fix Android tablets detection */
 		if($this->os['name'] == 'Android' && !preg_match('/Mobile/',$this->ua))
 		{
-			$this->device['name'] = 'Android';
+			if($this->device['name'] == 'none')
+			{
+				$this->device['name'] = 'Android';
+			}
 			$this->device['type'] = 'tablet';
 		}
 		
@@ -417,7 +423,7 @@ class DetectBrowser
 		{
 			if($this->device['type'] == 'none')
 			{
-				$this->set_device('Mobile phone','mobile');
+				$this->setDevice('Mobile phone','mobile');
 			}
 		}
 	}

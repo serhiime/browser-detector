@@ -34,11 +34,13 @@ class DetectBrowser
 	 */
 	private $xml;
 	
+	private $debug = false;
+	
 	/*
 	 * Оbject initialization
 	 * @param string $ua User Agent string
 	 */
-	public function __construct($ua = 'none')
+	public function __construct($ua = 'none',$debug=false)
 	{
 		if($ua == 'none')
 		{
@@ -48,11 +50,16 @@ class DetectBrowser
 		{
 			$this->ua = $ua;
 		}
+		$this->debug = $debug;
 		$this->loadXml();
 		$this->detectBroswer();
 		$this->detectDevice();
 		$this->detectOs();
 		$this->fix();
+		if($this->debug)
+		{
+			$this->printAll();
+		}
 	}
 	
 	/**
@@ -317,7 +324,7 @@ class DetectBrowser
 			$pattern['7'] = '/Windows NT 6.1/';
 			$pattern['8'] = '/Windows NT 6.2/';
 			$pattern['CE'] = '/Windows CE/';
-			$pattern['Phone'] = '/(Windows Phone OS|WP)/';
+			$pattern['Phone'] = '/(Windows Phone OS|WP|Windows Phone|Windows\+Phone|Windows\+Phone\+OS)/';
 			$pattern['Mobile'] = '/Windows Mobile/';
 			
 			foreach($pattern as $key=>$value)
@@ -328,8 +335,35 @@ class DetectBrowser
 					break;
 				}
 			}
+			if($this->os['version'] == 'Phone')
+			{
+				$this->detectWindowsPhoneVersion();
+			}
 		}
 		$this->fixOsVersion();
+	}
+	
+	/**
+	 * Detection of Windows Phone Version;
+	 */
+	private function detectWindowsPhoneVersion()
+	{
+		$pattern = '/(Windows Phone OS|Windows Phone|Windows\+Phone|Windows\+Phone\+OS) [\w-._\+]{1,15}/';
+		if(preg_match($pattern, $this->ua))
+		{
+			preg_match($pattern, $this->ua,$v);
+			$v = $v[0];
+			$v = str_replace('+', ' ', $v);
+			$v = str_replace('Windows Phone OS', '', $v);
+			$v = str_replace('Windows Phone', '', $v);
+			$v = str_replace('Windows Phone', '', $v);
+			$v = str_replace(' ', '', $v);
+			$v = str_replace('\\', '', $v);
+			$v = str_replace('|', '', $v);
+			$this->os['name'] .= ' '.$this->os['version'];
+			$this->os['version'] = ' '.$v;
+		}
+		$this->os['type'] == 'mobile';
 	}
 	
 	/**
@@ -392,6 +426,12 @@ class DetectBrowser
 			}
 		}
 		
+		/* Fix Windows Phone os['type'] bug */
+		if($this->os['family'] == 'win' && $this->device['type'] == 'mobile')
+		{
+			$this->os['type'] = 'mobile';
+		}
+		
 		/* Fix Google phone detection */
 		if($this->device['name'] == 'Google' && $this->os['name'] == 'Android')
 		{
@@ -426,6 +466,25 @@ class DetectBrowser
 				$this->setDevice('Mobile phone','mobile');
 			}
 		}
+	}
+	
+	public function printAll()
+	{
+		echo $this->getUa()."\n";
+		foreach ($this->getAll() as $key=>$value)
+		{
+			echo $key."\n";
+			foreach ($value as $key2=>$val)
+			{
+				echo "\t".$key2.': '.$val."\n";
+			}
+		}
+		echo "\n";
+	}
+	
+	public function getAll()
+	{
+		return Array('browser'=>$this->browser,'os'=>$this->os,'device'=>$this->device);
 	}
 }
 ?>

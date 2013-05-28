@@ -1,3 +1,35 @@
+v 1.1.8:
+	device support:
+		- HTC 6990
+		- HTC Mazaa
+		- HTC Mozart
+		- HTC 7 Pro
+		- HTC 7 Trophy
+		- Nokia Lumia 505
+		- Nokia Lumia 510
+		- Nokia Lumia 520
+		- Nokia Lumia 610
+		- Nokia Lumia 620
+		- Nokia Lumia 710
+		- Nokia Lumia 720
+		- Nokia Lumia 730
+		- Nokia Lumia 800
+		- Nokia Lumia 810
+		- Nokia Lumia 820
+		- Nokia Lumia 822
+		- Nokia Lumia 910
+		- Nokia Lumia 920
+		- Nokia Lumia 928
+	fixed:
+		- win os family detection
+		- added detection version of Windows Phone OS
+		- fix os['type'] bug for Windows Phone OS
+	added:
+		- $debug property (default = false)
+		- printAll() function
+		- getAll() function
+	deleted:
+		- tests folder
 v 1.1.7:
 	browsers support:
 		- Chimera

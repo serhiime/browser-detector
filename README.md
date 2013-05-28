@@ -1,7 +1,7 @@
 ##EN
 	Author: Sergey Nehaenko <sergey.nekhaenko@gmail.com>
-	Current Version: 1.1.7
-	Last Update: 11.05.2013
+	Current Version: 1.1.8
+	Last Update: 28.05.2013
 	License: GPL
 
 Demo: http://endorphinua.ru/
@@ -18,6 +18,9 @@ Browser screenshot from iPhone (Safari):
 
 ![Demo](http://endorphinua.ru/images/iPhone-Safari.png)
 
+Browser screenshot from Nokia Lumia 620:
+![Demo](http://endorphinua.ru/images/Lumia-620.png)
+
 **How to use:**
 
 	<?php
@@ -27,9 +30,12 @@ Browser screenshot from iPhone (Safari):
 
 **Methods:**
 
-	getOs() - get information about user Operating System
-	getDevice() - get information about user Device
-	getBrowser() - get information about user Browser
+	getOs() - Get information about user Operating System
+	getDevice() - Get information about user Device
+	getBrowser() - Get information about user Browser
+	getUa() - Get User Agent string
+	getAll() - Get All information (browser,device,os)
+	printAll() - Print All information (for debug)
 	
 **Example:**
 
@@ -68,11 +74,27 @@ Browser screenshot from iPhone (Safari):
 	)
 ##RU
 	Автор: Sergey Nehaenko <sergey.nekhaenko@gmail.com>
-	Последняя версия: 1.1.7
-	Последнее обновление: 11.05.2013
+	Последняя версия: 1.1.8
+	Последнее обновление: 28.05.2013
 	Лицензия: GPL
 
 Демо: http://endorphinua.ru/
+
+Скриншот из браузера на ПК:
+
+![Demo](http://endorphinua.ru/images/demo.png)
+
+Скриншот из браузера на iPhone (Opera Mini):
+
+![Demo](http://endorphinua.ru/images/iPhone-Screenshot.png)
+
+Скриншот из браузера на iPhone (Safari):
+
+![Demo](http://endorphinua.ru/images/iPhone-Safari.png)
+
+Скриншот браузера на Nokia Lumia 620:
+![Demo](http://endorphinua.ru/images/Lumia-620.png)
+
 
 
 **Как использовать:**
@@ -87,6 +109,9 @@ Browser screenshot from iPhone (Safari):
 	getOs() - Получение данных о операционной системе пользователя
 	getDevice() - Получение данных о устройстве пользователя
 	getBrowser() - Получение данных о браузере пользователя
+	getUa() - Возвращает User Agent строку браузера
+	getAll() - Получение всех данных (Браузер,Устройство,ОС)
+	printAll() - Выводит всю информацию (можно использовать для отладки)
 	
 **Пример:**
 

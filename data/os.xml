@@ -204,5 +204,6 @@
 		<pattern>(Windows|Win|WP)</pattern>
 		<family>win</family>
 		<type>desktop</type>
+		<version_pattern>(Windows|Win|WP)</version_pattern>
 	</example>
 </examples>

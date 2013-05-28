@@ -79,6 +79,26 @@
 		<pattern>(Evo|PG86100|EVO|Sprint )</pattern>
 		<type>mobile</type>
 	</example>
+	
+	<example id="HTC Mazaa">
+		<pattern>Mazaa</pattern>
+		<type>mobile</type>
+	</example>
+	
+	<example id="HTC Mozart">
+		<pattern>Mozart</pattern>
+		<type>mobile</type>
+	</example>
+	
+	<example id="HTC 7 Pro">
+		<pattern>(MWP6885|T7576|HTC-7 Pro|USCCHTC-PC93100|T7575)</pattern>
+		<type>mobile</type>
+	</example>
+	
+	<example id="HTC 7 Trophy">
+		<pattern>(Trophy|T8686)</pattern>
+		<type>mobile</type>
+	</example>
 
 	<example id="Nokia Lumia 900">
 		<pattern>(Lumia 900|Nokia 900)</pattern>
@@ -97,6 +117,86 @@
 	
 	<example id="Google Nexus">
 		<pattern>Nexus</pattern>
+		<type>mobile</type>
+	</example>
+	
+	<example id="HTC 6990">
+		<pattern>HTC6990</pattern>
+		<type>mobile</type>
+	</example>
+	
+	<example id="Nokia Lumia 505">
+		<pattern>Lumia 505</pattern>
+		<type>mobile</type>
+	</example>
+	
+	<example id="Nokia Lumia 510">
+		<pattern>Lumia 510</pattern>
+		<type>mobile</type>
+	</example>
+	
+	<example id="Nokia Lumia 520">
+		<pattern>Lumia 520</pattern>
+		<type>mobile</type>
+	</example>
+	
+	<example id="Nokia Lumia 610">
+		<pattern>Lumia 610</pattern>
+		<type>mobile</type>
+	</example>
+	
+	<example id="Nokia Lumia 620">
+		<pattern>Lumia 620</pattern>
+		<type>mobile</type>
+	</example>
+	
+	<example id="Nokia Lumia 710">
+		<pattern>Lumia 710</pattern>
+		<type>mobile</type>
+	</example>
+	
+	<example id="Nokia Lumia 720">
+		<pattern>Lumia 720</pattern>
+		<type>mobile</type>
+	</example>
+	
+	<example id="Nokia Lumia 730">
+		<pattern>Lumia 730</pattern>
+		<type>mobile</type>
+	</example>
+	
+	<example id="Nokia Lumia 800">
+		<pattern>Lumia 800</pattern>
+		<type>mobile</type>
+	</example>
+	
+	<example id="Nokia Lumia 810">
+		<pattern>Lumia 810</pattern>
+		<type>mobile</type>
+	</example>
+	
+	<example id="Nokia Lumia 820">
+		<pattern>Lumia 820</pattern>
+		<type>mobile</type>
+	</example>
+	
+	<example id="Nokia Lumia 822">
+		<pattern>Lumia 822</pattern>
+		<type>mobile</type>
+	</example>
+	
+	<example id="Nokia Lumia 910">
+		<pattern>Lumia 910</pattern>
+		<type>mobile</type>
+	</example>
+	
+	<example id="Nokia Lumia 920">
+		<pattern>Lumia 920</pattern>
+		<type>mobile</type>
+	</example>
+	
+	<example id="Nokia Lumia 928">
+		<pattern>Lumia 928</pattern>
 		<type>mobile</type>
 	</example>
 	

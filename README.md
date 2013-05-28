@@ -19,6 +19,7 @@ Browser screenshot from iPhone (Safari):
 ![Demo](http://endorphinua.ru/images/iPhone-Safari.png)
 
 Browser screenshot from Nokia Lumia 620:
+
 ![Demo](http://endorphinua.ru/images/Lumia-620.png)
 
 **How to use:**
@@ -93,6 +94,7 @@ Browser screenshot from Nokia Lumia 620:
 ![Demo](http://endorphinua.ru/images/iPhone-Safari.png)
 
 Скриншот браузера на Nokia Lumia 620:
+
 ![Demo](http://endorphinua.ru/images/Lumia-620.png)
 
 

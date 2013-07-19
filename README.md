@@ -3,6 +3,7 @@
 	Current Version: 1.1.8
 	Last Update: 28.05.2013
 	License: GPL
+	Last Readme Fix: 19.07.2013
 
 Demo: http://d.clips-world.ru/
 

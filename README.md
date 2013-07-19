@@ -4,23 +4,23 @@
 	Last Update: 28.05.2013
 	License: GPL
 
-Demo: http://endorphinua.ru/
+Demo: http://d.clips-world.ru/
 
 Browser screenshot from Desktop:
 
-![Demo](http://endorphinua.ru/images/demo.png)
+![Demo](http://d.clips-world.ru/images/demo.png)
 
 Browser screenshot from iPhone (Opera Mini):
 
-![Demo](http://endorphinua.ru/images/iPhone-Screenshot.png)
+![Demo](http://d.clips-world.ru/images/iPhone-Screenshot.png)
 
 Browser screenshot from iPhone (Safari):
 
-![Demo](http://endorphinua.ru/images/iPhone-Safari.png)
+![Demo](http://d.clips-world.ru/images/iPhone-Safari.png)
 
 Browser screenshot from Nokia Lumia 620:
 
-![Demo](http://endorphinua.ru/images/Lumia-620.png)
+![Demo](http://d.clips-world.ru/images/Lumia-620.png)
 
 **How to use:**
 
@@ -79,23 +79,23 @@ Browser screenshot from Nokia Lumia 620:
 	Последнее обновление: 28.05.2013
 	Лицензия: GPL
 
-Демо: http://endorphinua.ru/
+Демо: http://d.clips-world.ru/
 
 Скриншот из браузера на ПК:
 
-![Demo](http://endorphinua.ru/images/demo.png)
+![Demo](http://d.clips-world.ru/images/demo.png)
 
 Скриншот из браузера на iPhone (Opera Mini):
 
-![Demo](http://endorphinua.ru/images/iPhone-Screenshot.png)
+![Demo](http://d.clips-world.ru/images/iPhone-Screenshot.png)
 
 Скриншот из браузера на iPhone (Safari):
 
-![Demo](http://endorphinua.ru/images/iPhone-Safari.png)
+![Demo](http://d.clips-world.ru/images/iPhone-Safari.png)
 
 Скриншот браузера на Nokia Lumia 620:
 
-![Demo](http://endorphinua.ru/images/Lumia-620.png)
+![Demo](http://d.clips-world.ru/images/Lumia-620.png)
 
 
 

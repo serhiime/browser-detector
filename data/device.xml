@@ -1,5 +1,10 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <examples>
+	<example id="Lumia">
+		<pattern>Lumia [0-9]{1,5}</pattern>
+		<type>mobile</type>
+	</example>
+
 	<example id="iPhone">
 		<pattern>iPhone</pattern>
 		<type>mobile</type>
@@ -64,11 +69,6 @@
 		<pattern>AT1S0</pattern>
 		<type>tablet</type>
 	</example>
-
-	<example id="Microsoft Surface">
-		<pattern>Windows NT 6.2; ARM;</pattern>
-		<type>tablet</type>
-	</example>
 		
 	<example id="Pandigital SuperNova 8">
 		<pattern>pandigitalsprnova1\/sourceidDL00000025</pattern>
@@ -125,81 +125,6 @@
 		<type>mobile</type>
 	</example>
 	
-	<example id="Nokia Lumia 505">
-		<pattern>Lumia 505</pattern>
-		<type>mobile</type>
-	</example>
-	
-	<example id="Nokia Lumia 510">
-		<pattern>Lumia 510</pattern>
-		<type>mobile</type>
-	</example>
-	
-	<example id="Nokia Lumia 520">
-		<pattern>Lumia 520</pattern>
-		<type>mobile</type>
-	</example>
-	
-	<example id="Nokia Lumia 610">
-		<pattern>Lumia 610</pattern>
-		<type>mobile</type>
-	</example>
-	
-	<example id="Nokia Lumia 620">
-		<pattern>Lumia 620</pattern>
-		<type>mobile</type>
-	</example>
-	
-	<example id="Nokia Lumia 710">
-		<pattern>Lumia 710</pattern>
-		<type>mobile</type>
-	</example>
-	
-	<example id="Nokia Lumia 720">
-		<pattern>Lumia 720</pattern>
-		<type>mobile</type>
-	</example>
-	
-	<example id="Nokia Lumia 730">
-		<pattern>Lumia 730</pattern>
-		<type>mobile</type>
-	</example>
-	
-	<example id="Nokia Lumia 800">
-		<pattern>Lumia 800</pattern>
-		<type>mobile</type>
-	</example>
-	
-	<example id="Nokia Lumia 810">
-		<pattern>Lumia 810</pattern>
-		<type>mobile</type>
-	</example>
-	
-	<example id="Nokia Lumia 820">
-		<pattern>Lumia 820</pattern>
-		<type>mobile</type>
-	</example>
-	
-	<example id="Nokia Lumia 822">
-		<pattern>Lumia 822</pattern>
-		<type>mobile</type>
-	</example>
-	
-	<example id="Nokia Lumia 910">
-		<pattern>Lumia 910</pattern>
-		<type>mobile</type>
-	</example>
-	
-	<example id="Nokia Lumia 920">
-		<pattern>Lumia 920</pattern>
-		<type>mobile</type>
-	</example>
-	
-	<example id="Nokia Lumia 928">
-		<pattern>Lumia 928</pattern>
-		<type>mobile</type>
-	</example>
-	
 	<example id="Amazon Kindle Fire">
 		<pattern>Kindle Fire</pattern>
 		<type>tablet</type>
@@ -208,6 +133,11 @@
 	<example id="Motorola">
 		<pattern>(MOT|Motorola|MOT-|MOTOZINE|XT|Mot|Droid|DROIDX|A1260|A1680|A555|A853|A855|A953|A955|A956|Motorola.*ELECTRIFY|Motorola.*i1|i867|i940|MB200|MB300|MB501|MB502|MB508|MB511|MB520|MB525|MB526|MB611|MB612|MB632|MB810|MB855|MB860|MB861|MB865|MB870|ME501|ME502|ME511|ME525|ME600|ME632|ME722|ME811|ME860|ME863|ME865|MT620|MT710|MT716|MT720|MT810|MT870|MT917|WX435|WX445|XT300|XT301|XT311|XT316|XT317|XT319|XT320|XT390|XT502|XT530|XT531|XT532|XT535|XT603|XT610|XT611|XT615|XT681|XT701|XT702|XT711|XT720|XT800|XT806|XT860|XT862|XT875|XT882|XT883|XT894|XT909|XT910|XT912|XT928|HRI39|Xoom)</pattern>
 		<type>mobile</type>
+	</example>
+	
+	<example id="Microsoft Surface">
+		<pattern>Windows NT 6.2; ARM;</pattern>
+		<type>tablet</type>
 	</example>
 	
 	<example id="Sony Ericsson">

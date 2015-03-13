@@ -220,7 +220,15 @@ class DetectBrowser
 			$value = '/'.$value.'/';
 			if(preg_match($value,$this->ua))
 			{
-				$this->setDevice($key,$this->xml['device']['type'][$key]);
+				if($key == 'Lumia')
+				{
+					preg_match($value,$this->ua,$r);
+					$this->setDevice($r[0],$this->xml['device']['type'][$key]);
+				}
+				else
+				{
+					$this->setDevice($key,$this->xml['device']['type'][$key]);
+				}
 				break;
 			}
 		}
@@ -465,6 +473,12 @@ class DetectBrowser
 			{
 				$this->setDevice('Mobile phone','mobile');
 			}
+		}
+		
+		/* Last MICROSOFT LUMIAs FIX */
+		if($this->browser['name'] == 'none' && $this->device['type'] == 'mobile' && $this->os['name'] = 'Windows')
+		{
+			$this->setBrowser('Internet Explorer Mobile','mobile');
 		}
 	}
 	

@@ -1,5 +1,12 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <examples>
+	<example id="Windows">
+		<pattern>(Windows|Win|WP)</pattern>
+		<family>win</family>
+		<type>desktop</type>
+		<version_pattern>(Windows|Win|WP)</version_pattern>
+	</example>
+
 	<example id="Android">
 		<pattern>(; |\()Android</pattern>
 		<version_pattern>Android</version_pattern>

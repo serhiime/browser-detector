@@ -1,7 +1,7 @@
 ##EN
 	Author: Sergey Nehaenko <sergey.nekhaenko@gmail.com>
-	Current Version: 1.1.8
-	Last Update: 28.05.2013
+	Current Version: 1.1.9
+	Last Update: 13.03.2015
 	License: GPL
 	Last Readme Fix: 19.07.2013
 

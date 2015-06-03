@@ -1,5 +1,11 @@
-
-[Русский](https://github.com/endorphinua/browser-os-device-detect#ru) | [English](https://github.com/endorphinua/browser-os-device-detect#en)
+	Author: Sergey Nehaenko <sergey.nekhaenko@gmail.com>
+	Current Version: 1.1.9
+	Last Update: 13.03.2015
+	License: GPL
+	Last Readme Fix: 19.07.2013
+	
+Документация: [ru](http://detector.endorphinua.ru/images/ru.png) [Русский](https://github.com/endorphinua/browser-os-device-detect#ru)
+Documentation: [en](http://detector.endorphinua.ru/images/en.png) [English](https://github.com/endorphinua/browser-os-device-detect#en)
 
 ##EN
 	Author: Sergey Nehaenko <sergey.nekhaenko@gmail.com>
@@ -12,19 +18,19 @@ Demo: http://detector.endorphinua.ru/
 
 Browser screenshot from Desktop:
 
-![Demo](http://d.clips-world.ru/images/demo.png)
+![Demo](http://detector.endorphinua.ru/images/demo.png)
 
 Browser screenshot from iPhone (Opera Mini):
 
-![Demo](http://d.clips-world.ru/images/iPhone-Screenshot.png)
+![Demo](http://detector.endorphinua.ru/images/iPhone-Screenshot.png)
 
 Browser screenshot from iPhone (Safari):
 
-![Demo](http://d.clips-world.ru/images/iPhone-Safari.png)
+![Demo](http://detector.endorphinua.ru/images/iPhone-Safari.png)
 
 Browser screenshot from Nokia Lumia 620:
 
-![Demo](http://d.clips-world.ru/images/Lumia-620.png)
+![Demo](http://detector.endorphinua.ru/images/Lumia-620.png)
 
 **How to use:**
 
@@ -87,19 +93,19 @@ Browser screenshot from Nokia Lumia 620:
 
 Скриншот из браузера на ПК:
 
-![Demo](http://d.clips-world.ru/images/demo.png)
+![Demo](http://detector.endorphinua.ru/images/demo.png)
 
 Скриншот из браузера на iPhone (Opera Mini):
 
-![Demo](http://d.clips-world.ru/images/iPhone-Screenshot.png)
+![Demo](http://detector.endorphinua.ru/images/iPhone-Screenshot.png)
 
 Скриншот из браузера на iPhone (Safari):
 
-![Demo](http://d.clips-world.ru/images/iPhone-Safari.png)
+![Demo](http://detector.endorphinua.ru/images/iPhone-Safari.png)
 
 Скриншот браузера на Nokia Lumia 620:
 
-![Demo](http://d.clips-world.ru/images/Lumia-620.png)
+![Demo](http://detector.endorphinua.ru/images/Lumia-620.png)
 
 
 

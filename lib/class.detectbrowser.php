@@ -1,9 +1,9 @@
 <?php
 /**
- * @version 1.1.6
+ * @version 1.1.9
  * @author Sergey Nehaenko <sergey.nekhaenko@gmail.com>
- * @copyright Copyright (c) Sergey Nehaenko 2012-2013
- * @package ru.endorphinua.lib
+ * @copyright Copyright (c) Sergey Nehaenko 2012-2015
+ * @package ru.endorphinua.detector
  * @license: GPL
  */
 define('ROOT',$_SERVER['DOCUMENT_ROOT']);

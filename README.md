@@ -1,3 +1,6 @@
+
+[Русский](https://github.com/endorphinua/browser-os-device-detect#ru) | [English](https://github.com/endorphinua/browser-os-device-detect#en)
+
 ##EN
 	Author: Sergey Nehaenko <sergey.nekhaenko@gmail.com>
 	Current Version: 1.1.9
@@ -5,7 +8,7 @@
 	License: GPL
 	Last Readme Fix: 19.07.2013
 
-Demo: http://d.clips-world.ru/
+Demo: http://detector.endorphinua.ru/
 
 Browser screenshot from Desktop:
 
@@ -80,7 +83,7 @@ Browser screenshot from Nokia Lumia 620:
 	Последнее обновление: 28.05.2013
 	Лицензия: GPL
 
-Демо: http://d.clips-world.ru/
+Демо: http://detector.endorphinua.ru/
 
 Скриншот из браузера на ПК:
 

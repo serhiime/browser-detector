@@ -6,24 +6,6 @@
 
 Демо: http://detector.endorphinua.ru/
 
-Скриншот из браузера на ПК:
-
-![Demo](http://detector.endorphinua.ru/images/demo.png)
-
-Скриншот из браузера на iPhone (Opera Mini):
-
-![Demo](http://detector.endorphinua.ru/images/iPhone-Screenshot.png)
-
-Скриншот из браузера на iPhone (Safari):
-
-![Demo](http://detector.endorphinua.ru/images/iPhone-Safari.png)
-
-Скриншот браузера на Nokia Lumia 620:
-
-![Demo](http://detector.endorphinua.ru/images/Lumia-620.png)
-
-
-
 **Как использовать:**
 
 	<?php

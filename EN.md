@@ -7,22 +7,6 @@
 
 Demo: http://detector.endorphinua.ru/
 
-Browser screenshot from Desktop:
-
-![Demo](http://detector.endorphinua.ru/images/demo.png)
-
-Browser screenshot from iPhone (Opera Mini):
-
-![Demo](http://detector.endorphinua.ru/images/iPhone-Screenshot.png)
-
-Browser screenshot from iPhone (Safari):
-
-![Demo](http://detector.endorphinua.ru/images/iPhone-Safari.png)
-
-Browser screenshot from Nokia Lumia 620:
-
-![Demo](http://detector.endorphinua.ru/images/Lumia-620.png)
-
 **How to use:**
 
 	<?php

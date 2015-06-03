@@ -4,8 +4,8 @@
 	License: GPL
 	Last Readme Fix: 03.06.2015
 	
-Документация: ![ru](http://detector.endorphinua.ru/images/ru.png) [Русский](https://github.com/endorphinua/browser-os-device-detect#ru)
-Documentation: ![en](http://detector.endorphinua.ru/images/en.png) [English](https://github.com/endorphinua/browser-os-device-detect#en)
+- Документация: ![ru](http://detector.endorphinua.ru/images/ru.png) [Русский](https://github.com/endorphinua/browser-os-device-detect#ru)
+- Documentation: ![en](http://detector.endorphinua.ru/images/en.png) [English](https://github.com/endorphinua/browser-os-device-detect#en)
 
 ##EN
 	Author: Sergey Nehaenko <sergey.nekhaenko@gmail.com>

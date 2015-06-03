@@ -2,7 +2,7 @@
 	Current Version: 1.1.9
 	Last Update: 13.03.2015
 	License: GPL
-	Last Readme Fix: 19.07.2013
+	Last Readme Fix: 03.06.2015
 	
 Документация: ![ru](http://detector.endorphinua.ru/images/ru.png) [Русский](https://github.com/endorphinua/browser-os-device-detect#ru)
 Documentation: ![en](http://detector.endorphinua.ru/images/en.png) [English](https://github.com/endorphinua/browser-os-device-detect#en)
@@ -12,7 +12,7 @@ Documentation: ![en](http://detector.endorphinua.ru/images/en.png) [English](htt
 	Current Version: 1.1.9
 	Last Update: 13.03.2015
 	License: GPL
-	Last Readme Fix: 19.07.2013
+	Last Readme Fix: 03.06.2015
 
 Demo: http://detector.endorphinua.ru/
 

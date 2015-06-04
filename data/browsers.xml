@@ -131,12 +131,6 @@
 		<version_pattern>(Conkeror|conkeror)</version_pattern>
 		<type>desktop</type>
 	</example>
-
-	<example id="Google Chrome">
-		<pattern>(Chrome|CriOS)</pattern>
-		<version_pattern>(Chrome|CriOS)</version_pattern>
-		<type>desktop</type>
-	</example>
 	
 	<example id="Opera Mini">
 		<pattern>Opera Mini</pattern>
@@ -145,9 +139,21 @@
 	</example>
 	
 	<example id="Opera Mobile">
-		<pattern>Opera Mobi</pattern>
-		<version_pattern>Opera Mobi</version_pattern>
+		<pattern>(Opera Mobi|OPiOS)</pattern>
+		<version_pattern>(Opera Mobi|OPiOS)</version_pattern>
 		<type>mobile</type>
+	</example>
+	
+	<example id="Opera">
+		<pattern>(Opera|OPR)</pattern>
+		<version_pattern>(Version|OPR)</version_pattern>
+		<type>desktop</type>
+	</example>
+	
+	<example id="Google Chrome">
+		<pattern>(Chrome|CriOS)</pattern>
+		<version_pattern>(Chrome|CriOS)</version_pattern>
+		<type>desktop</type>
 	</example>
 	
 	<example id="Atomic">
@@ -160,12 +166,6 @@
 		<pattern>Skyfire</pattern>
 		<version_pattern>Skyfire</version_pattern>
 		<type>mobile</type>
-	</example>
-	
-	<example id="Opera">
-		<pattern>Opera</pattern>
-		<version_pattern>Version</version_pattern>
-		<type>desktop</type>
 	</example>
 	
 	<example id="Maxthon">

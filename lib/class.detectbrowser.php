@@ -394,6 +394,13 @@ class DetectBrowser
 	*/
 	private function fix()
 	{
+		/* fix iPhone detection */
+		if($this->device['name'] == 'iPhone' && $this->browser['name'] == 'none')
+		{
+			$this->browser['name'] = 'Safari';
+			$this->detectBrowserVersion('Version');
+		}
+		
 		/* Fix Chrome Mobile Detection */
 		if($this->browser['name'] == 'Google Chrome' && $this->os['name'] == 'Android' || $this->browser['name'] == 'Google Chrome' && $this->os['name'] == 'iOS' || $this->browser['name'] == 'Google Chrome' && $this->device['type'] == 'mobile' || $this->browser['name'] == 'Google Chrome' && $this->device['type'] == 'tablet')
 		{

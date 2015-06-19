@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<examples>
+		
+	<example id="Google">
+		<pattern>(Googlebot|Mediapartners-Google)</pattern>
+		<site>http://google.com</site>
+		<device>desktop</device>
+	</example>
+	
+	<example id="Yandex">
+		<pattern>(YandexBot|YandexRCA|YandexImages|YandexVideo|YandexMedia|YandexBlogs|YandexFavicons|YandexWebmaster|YandexPagechecker|YandexImageResizer|YandexDirect|YandexSitelinks|YandexAdNet|YandexMetrika|YandexNews|YandexCatalog|YandexAntivirus|YandexMarket|YandexVertis)</pattern>
+		<site>http://yandex.com</site>
+		<device>desktop</device>
+	</example>
+	
+</examples>

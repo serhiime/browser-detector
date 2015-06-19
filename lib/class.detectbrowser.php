@@ -28,11 +28,13 @@ class DetectBrowser
 	/**
 	 * @var array contains the path to the xml files
 	 */
-	private $xml_path = Array('os'=> '/data/os.xml','browser'=> '/data/browsers.xml','device'=>'/data/device.xml');
+	private $xml_path = Array('os'=> '/data/os.xml','browser'=> '/data/browsers.xml','device'=>'/data/device.xml','bot'=>'/data/bot.xml');
 	/**
 	 * @var array contains information from xml files
 	 */
 	private $xml;
+	
+	public $isBot = false;
 	
 	private $debug = false;
 	
@@ -52,10 +54,15 @@ class DetectBrowser
 		}
 		$this->debug = $debug;
 		$this->loadXml();
-		$this->detectBroswer();
-		$this->detectDevice();
-		$this->detectOs();
-		$this->fix();
+		$this->detectBot();
+		if(!$this->isBot)
+		{
+			$this->detectBroswer();
+			$this->detectDevice();
+			$this->detectOs();
+			$this->fix();
+		}
+		
 		if($this->debug)
 		{
 			$this->printAll();
@@ -70,6 +77,8 @@ class DetectBrowser
 		$os = simplexml_load_file(ROOT.$this->xml_path['os']);
 		$browser = simplexml_load_file(ROOT.$this->xml_path['browser']);
 		$device = simplexml_load_file(ROOT.$this->xml_path['device']);
+		$bot = simplexml_load_file(ROOT.$this->xml_path['bot']);
+		
 		$this->xml = Array();
 		foreach($os->children() as $element)
 		{
@@ -99,6 +108,16 @@ class DetectBrowser
 				$property = (string) $property_key;
 				$id = (string) $id;
 				$this->xml['device'][$property][$id] = (string)$property_value;
+			}
+		}
+		foreach($bot->children() as $element)
+		{
+			$id = $element->attributes()->id;
+			foreach($element->children() as $property_key => $property_value)
+			{
+				$property = (string) $property_key;
+				$id = (string) $id;
+				$this->xml['bot'][$property][$id] = (string)$property_value;
 			}
 		}
 	}
@@ -264,6 +283,25 @@ class DetectBrowser
 				{
 					$this->setOs($key,$this->xml['os']['family'][$key]);
 				}
+				break;
+			}
+		}
+	}
+	
+	/*
+	 * Detect sitebot
+	*/ 
+	private function detectBot()
+	{		
+		$pattern = $this->xml['bot']['pattern'];
+		
+		foreach($pattern as $key=>$value)
+		{
+			$value = '/'.$value.'/';
+			if(preg_match($value,$this->ua))
+			{
+				$this->isBot = true;
+				$this->setDevice($key, $this->xml['bot']['device'][$key]);
 				break;
 			}
 		}

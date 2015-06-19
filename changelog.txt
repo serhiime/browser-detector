@@ -1,3 +1,7 @@
+v 1.1.10
+	- add $isBot property
+	- add Bot Detection (Google, Yandex)
+
 v 1.1.9:
 	- fix Lumia`s detection
 

@@ -5,6 +5,12 @@
 		<version_pattern>Epiphany</version_pattern>
 		<type>desktop</type>
 	</example>
+	
+	<example id="Edge">
+		<pattern>Edge</pattern>
+		<version_pattern>Edge</version_pattern>
+		<type>mobile</type>
+	</example>
 
 	<example id="Chimera">
 		<pattern>Chimera</pattern>

@@ -1,9 +1,9 @@
 
 	Author: Sergey Nehaenko <sergey.nekhaenko@gmail.com>
-	Current Version: 1.1.9
-	Last Update: 13.03.2015
+	Current Version: 1.1.11
+	Last Update: 18.07.2015
 	License: GPL
-	Last Readme Fix: 03.06.2015
+	Last Readme Fix: 18.07.2015
 
 Demo: http://detector.endorphinua.ru/
 

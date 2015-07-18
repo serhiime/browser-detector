@@ -1,8 +1,8 @@
 	Author: Sergey Nehaenko <sergey.nekhaenko@gmail.com>
-	Current Version: 1.1.10
-	Last Update: 19.06.2015
+	Current Version: 1.1.11
+	Last Update: 18.07.2015
 	License: GPL
-	Last Readme Fix: 03.06.2015
+	Last Readme Fix: 18.07.2015
 	
 ![ru](http://detector.endorphinua.ru/images/ru.png) [Русский](https://github.com/endorphinua/browser-os-device-detect/blob/master/RU.md)
 

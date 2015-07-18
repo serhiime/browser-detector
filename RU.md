@@ -1,7 +1,7 @@
 
 	Автор: Sergey Nehaenko <sergey.nekhaenko@gmail.com>
-	Последняя версия: 1.1.9
-	Последнее обновление: 13.03.2015
+	Последняя версия: 1.1.11
+	Последнее обновление: 18.07.2015
 	Лицензия: GPL
 
 Демо: http://detector.endorphinua.ru/

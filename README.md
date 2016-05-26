@@ -1,11 +1,11 @@
+## Warning
+
+Project was moved into [endorphin-studio/browser-detector](https://github.com/endorphin-studio/browser-detector)
+
+### About
 	Author: Sergey Nehaenko <sergey.nekhaenko@gmail.com>
 	Current Version: 1.1.11
 	Last Update: 18.07.2015
 	License: GPL
 	Last Readme Fix: 18.07.2015
 	
-![ru](http://detector.endorphinua.ru/images/ru.png) [Русский](https://github.com/endorphinua/browser-os-device-detect/blob/master/RU.md)
-
-![en](http://detector.endorphinua.ru/images/en.png) [English](https://github.com/endorphinua/browser-os-device-detect/blob/master/EN.md)
-
-[Screenshots](https://github.com/endorphinua/browser-os-device-detect/blob/master/SCREENSHOTS.md)
